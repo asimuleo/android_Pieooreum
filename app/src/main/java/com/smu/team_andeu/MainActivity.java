@@ -17,5 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         Button button;
+        Button button2;
+
     }
 }
