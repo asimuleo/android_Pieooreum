@@ -19,20 +19,19 @@ class BaseDatabaseWorker(
         context: Context,
         workerParams: WorkerParameters
 ) : CoroutineWorker(context, workerParams) {
-    override suspend fun doWork(): Result = coroutineScope{
+    override suspend fun doWork(): Result = coroutineScope {
         try {
-            applicationContext.assets.open(EXER_DATA_FILENAME).use {inputStream ->
-                JsonReader(inputStream.reader()).use {jsonReader ->
+            applicationContext.assets.open(EXER_DATA_FILENAME).use { inputStream ->
+                JsonReader(inputStream.reader()).use { jsonReader ->
                     val exerType = object : TypeToken<List<Exercise>>() {}.type
-                    val exerList : List<Exercise> = Gson().fromJson(jsonReader, exerType)
+                    val exerList: List<Exercise> = Gson().fromJson(jsonReader, exerType)
 
                     val database = AppDatabase.getInstance(applicationContext)
                     database.exerDao().insertAll(exerList)
                     Result.success()
                 }
             }
-
-        } catch (ex: Exception){
+        } catch (ex: Exception) {
             Log.e(TAG, "Error base database")
             Result.failure()
         }

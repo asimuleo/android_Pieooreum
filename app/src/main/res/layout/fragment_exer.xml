@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="isLoading"
+            type="boolean" />
+
+        <variable
+            name="exerViewModel"
+            type="com.smu.team_andeu.viewmodels.ExerViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cardview_dark_background"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/exer_item"
+            app:exer="@{exerViewModel.exer}" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/loading_something"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/loading_something"
+                app:visibleGone="@{isLoading}" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/something_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/something_list"
+                app:layoutManager="LinearLayoutManager"
+                app:visibleGone="@{!isLoading}" />
+        </FrameLayout>
+
+
+    </LinearLayout>
+</layout>

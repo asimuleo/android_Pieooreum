@@ -4,4 +4,6 @@
     <string name="serach_product">serach product…</string>
     <string name="loading_exer">Loading exercises…</string>
     <string name="exers_list">exers list</string>
+    <string name="loading_something">loading something…</string>
+    <string name="something_list">something list</string>
 </resources>

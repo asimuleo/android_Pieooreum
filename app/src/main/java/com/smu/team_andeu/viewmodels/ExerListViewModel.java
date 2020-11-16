@@ -18,9 +18,9 @@ import java.util.List;
 public class ExerListViewModel extends AndroidViewModel {
     private static final String QUERY_KEY = "QUERY";
 
-    private  SavedStateHandle mSavedStateHandler;
-    private  ExerciseRepository exerciseRepository;
-    private  LiveData<List<Exercise>> mExers;
+    private SavedStateHandle mSavedStateHandler;
+    private ExerciseRepository exerciseRepository;
+    private LiveData<List<Exercise>> mExers;
 
     public ExerListViewModel(@NonNull Application application,
                              @NonNull SavedStateHandle savedStateHandle) {
@@ -31,10 +31,10 @@ public class ExerListViewModel extends AndroidViewModel {
                 savedStateHandle.getLiveData("QUERY", null),
                 (Function<CharSequence, LiveData<List<Exercise>>>) query -> {
                     // 검색 창이 비었으면 다 불러옴.
-                    if(TextUtils.isEmpty(query)) {
+                    if (TextUtils.isEmpty(query)) {
                         return exerciseRepository.getExers();
                     }
-                    return exerciseRepository.searchExers("*"+query+"*");
+                    return exerciseRepository.searchExers("*" + query + "*");
                 }
         );
     }

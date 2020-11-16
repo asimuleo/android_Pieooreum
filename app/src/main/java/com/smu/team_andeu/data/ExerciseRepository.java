@@ -14,16 +14,16 @@ public class ExerciseRepository {
     private static ExerciseRepository sInstance;
     private ExerciseDao mExerDao;
 
-    public ExerciseRepository(final Application application){
+    public ExerciseRepository(final Application application) {
         AppDatabase db = AppDatabase.getInstance(application);
         mExerDao = db.exerDao();
 
     }
 
     public static ExerciseRepository getInstance(final Application application) {
-        if(sInstance == null) {
+        if (sInstance == null) {
             synchronized (ExerciseRepository.class) {
-                if(sInstance == null) {
+                if (sInstance == null) {
                     sInstance = new ExerciseRepository(application);
                 }
             }
@@ -31,13 +31,19 @@ public class ExerciseRepository {
         return sInstance;
     }
 
+    // 운동들
     public LiveData<List<Exercise>> getExers() {
         return mExerDao.getExers();
     }
 
+    // 운동을 이름과 설명에서 검색
     public LiveData<List<Exercise>> searchExers(String query) {
         return mExerDao.searchExers(query);
     }
 
+    // 운동 하나
+    public LiveData<Exercise> getExerById(final int exerId) {
+        return mExerDao.getExer(exerId);
+    }
 
 }

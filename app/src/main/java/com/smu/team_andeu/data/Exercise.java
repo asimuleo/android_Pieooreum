@@ -22,7 +22,9 @@ public class Exercise implements Exer { // Entity
     private String group;
     private String imageUrl;
 
-    public boolean isTime(){return time > 0;}
+    public boolean isTime() {
+        return time > 0;
+    }
 
     public int getExerId() {
         return exerId;
@@ -50,5 +52,33 @@ public class Exercise implements Exer { // Entity
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public void setExerId(int exerId) {
+        this.exerId = exerId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCalorie(double calorie) {
+        this.calorie = calorie;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
