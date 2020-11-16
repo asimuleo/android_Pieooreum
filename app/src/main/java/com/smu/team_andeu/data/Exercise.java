@@ -4,14 +4,16 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.smu.team_andeu.model.Exer;
+
 // Room Entity 를 사용하여 데이터 정의
 // https://developer.android.com/training/data-storage/room/defining-data.html
 
 @Entity(tableName = "exers")
-public class Exercise { // Entity
+public class Exercise implements Exer { // Entity
     @PrimaryKey
     @ColumnInfo(name = "id")
-    private String exerId;
+    private int exerId;
     private String name;
     private double calorie;
     private String description;
@@ -22,13 +24,7 @@ public class Exercise { // Entity
 
     public boolean isTime(){return time > 0;}
 
-
-    @Override
-    public String toString() {
-        return name;
-    }
-
-    public String getExerId() {
+    public int getExerId() {
         return exerId;
     }
 

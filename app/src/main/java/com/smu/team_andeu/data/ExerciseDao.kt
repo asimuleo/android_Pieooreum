@@ -19,10 +19,14 @@ interface ExerciseDao {
 
     // group으로 찾기
     @Query("SELECT * FROM exers WHERE 'group' = :group ORDER BY name")
-    fun getExersWithGroup(group : String): LiveData<List<Exercise>>
+    fun getExersWithGroup(group: String): LiveData<List<Exercise>>
 
     // 초기 넣기 : 비동기식 처리중
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(plants: List<Exercise>)
+
+    // query를 통한 검색
+    @Query("SELECT exers.* FROM exers JOIN exersFts ON (exers.id = exersFts.rowid) WHERE exersFts MATCH :query")
+    fun searchExers(query : String): LiveData<List<Exercise>>
 
 }

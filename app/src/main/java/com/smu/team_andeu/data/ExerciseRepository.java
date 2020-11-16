@@ -3,6 +3,7 @@ package com.smu.team_andeu.data;
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MediatorLiveData;
 
 import java.util.List;
 
@@ -11,12 +12,12 @@ import java.util.List;
 public class ExerciseRepository {
     // 싱글톤
     private static ExerciseRepository sInstance;
-
     private ExerciseDao mExerDao;
 
-    private ExerciseRepository(final Application application){
+    public ExerciseRepository(final Application application){
         AppDatabase db = AppDatabase.getInstance(application);
         mExerDao = db.exerDao();
+
     }
 
     public static ExerciseRepository getInstance(final Application application) {
@@ -30,7 +31,13 @@ public class ExerciseRepository {
         return sInstance;
     }
 
-    LiveData<List<Exercise>> getExers() {
+    public LiveData<List<Exercise>> getExers() {
         return mExerDao.getExers();
     }
+
+    public LiveData<List<Exercise>> searchExers(String query) {
+        return mExerDao.searchExers(query);
+    }
+
+
 }

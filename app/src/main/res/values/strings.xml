@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">team_Andeu</string>
+    <string name="cd_exer_name">Name of the exercise</string>
+    <string name="serach_product">serach product…</string>
+    <string name="loading_exer">Loading exercises…</string>
+    <string name="exers_list">exers list</string>
 </resources>
