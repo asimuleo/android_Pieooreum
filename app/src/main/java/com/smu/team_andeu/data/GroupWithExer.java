@@ -1,10 +1,14 @@
 package com.smu.team_andeu.data;
 
 
+import androidx.room.Embedded;
 import androidx.room.Entity;
+import androidx.room.Relation;
 
-@Entity(tableName = "exerGroup", primaryKeys = {"exers.id, group.id"})
-public class ExerGroup {
+public class GroupWithExer {
+
+    @Embedded private Group group;
+
     private int exerId;
     private int groupId;
 
