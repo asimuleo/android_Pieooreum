@@ -6,4 +6,8 @@
     <string name="exers_list">exers list</string>
     <string name="loading_something">loading something…</string>
     <string name="something_list">something list</string>
+    <string name="button_routine">routine</string>
+    <string name="button_start">Start</string>
+    <string name="button_calendar">calendar</string>
+    <string name="button_myPage">MyPage</string>
 </resources>
