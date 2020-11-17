@@ -7,15 +7,23 @@ import androidx.room.PrimaryKey;
 
 import com.smu.team_andeu.model.Exer;
 
-@Entity
+@Entity(tableName = "dexer_table")
 public class Dexer{
     @PrimaryKey
     public int dexer_id;
 
     public String nicname;
     public int count;
-    public int time;
+    public int dtime;
     public int calories;
+
+    public int getDexer_id() {
+        return dexer_id;
+    }
+
+    public void setDexer_id(int dexer_id) {
+        this.dexer_id = dexer_id;
+    }
 
     public int getCalories() {
         return calories;
@@ -33,8 +41,8 @@ public class Dexer{
         this.count = count;
     }
 
-    public void setTime(int time) {
-        this.time = time;
+    public void setTime(int dtime) {
+        this.dtime = dtime;
     }
 
     public String getName() {
@@ -46,11 +54,20 @@ public class Dexer{
     }
 
     public int getTime() {
-        return time;
+        return dtime;
+    }
+
+    public Exercise getDExer() {
+        return exer;
+    }
+
+    public void setDExer(Exercise exer) {
+        this.exer = exer;
     }
 
     @ColumnInfo(name = "categories") public int categories;
 
+
     @Embedded
-    public Exer exer;
+    public Exercise exer;
 }
