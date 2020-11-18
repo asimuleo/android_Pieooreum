@@ -1,7 +1,5 @@
 package com.smu.team_andeu.data;
 
-import android.app.Application;
-
 import androidx.lifecycle.LiveData;
 
 import java.util.List;

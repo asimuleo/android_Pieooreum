@@ -1,17 +1,15 @@
 package com.smu.team_andeu.data;
 
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "group")
+@Entity(tableName = "group_table")
 public class Group {
 
     @PrimaryKey
-    @ColumnInfo(name = "id")
     private int groupId;
 
-    private String name;
+    private String g_name;
 
     public int getGroupId() {
         return groupId;
@@ -21,11 +19,11 @@ public class Group {
         this.groupId = groupId;
     }
 
-    public String getName() {
-        return name;
+    public String getG_name() {
+        return g_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setG_name(String g_name) {
+        this.g_name = g_name;
     }
 }

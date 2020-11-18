@@ -5,17 +5,32 @@ import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import com.smu.team_andeu.model.Exer;
-
 @Entity(tableName = "dexer_table")
-public class Dexer{
+public class Dexer {
     @PrimaryKey
-    public int dexer_id;
+    private int dexer_id;
 
-    public String nicname;
-    public int count;
-    public int dtime;
-    public int calories;
+    private String d_nicname;
+    private int d_count;
+    private int d_time;
+    private int d_calories;
+    private int d_routineId;
+    private int d_categories;
+
+    @Embedded(prefix = "d_exer_")
+    private Exercise exer;
+
+
+    public Dexer(int dexer_id, String d_nicname, int d_count, int d_time, int d_calories, int d_routineId, int d_categories, Exercise exer) {
+        this.dexer_id = dexer_id;
+        this.d_nicname = d_nicname;
+        this.d_count = d_count;
+        this.d_time = d_time;
+        this.d_calories = d_calories;
+        this.d_routineId = d_routineId;
+        this.d_categories = d_categories;
+        this.exer = exer;
+    }
 
     public int getDexer_id() {
         return dexer_id;
@@ -25,49 +40,59 @@ public class Dexer{
         this.dexer_id = dexer_id;
     }
 
-    public int getCalories() {
-        return calories;
+    public String getD_nicname() {
+        return d_nicname;
     }
 
-    public void setCalories(int calories) {
-        this.calories = calories;
+    public void setD_nicname(String d_nicname) {
+        this.d_nicname = d_nicname;
     }
 
-    public void setnicName(String nicname) {
-        this.nicname = nicname;
+    public int getD_count() {
+        return d_count;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setD_count(int d_count) {
+        this.d_count = d_count;
     }
 
-    public void setTime(int dtime) {
-        this.dtime = dtime;
+    public int getD_time() {
+        return d_time;
     }
 
-    public String getName() {
-        return nicname;
+    public void setD_time(int d_time) {
+        this.d_time = d_time;
     }
 
-    public int getCount() {
-        return count;
+    public int getD_calories() {
+        return d_calories;
     }
 
-    public int getTime() {
-        return dtime;
+    public void setD_calories(int d_calories) {
+        this.d_calories = d_calories;
     }
 
-    public Exercise getDExer() {
+    public int getD_routineId() {
+        return d_routineId;
+    }
+
+    public void setD_routineId(int d_routineId) {
+        this.d_routineId = d_routineId;
+    }
+
+    public int getD_categories() {
+        return d_categories;
+    }
+
+    public void setD_categories(int d_categories) {
+        this.d_categories = d_categories;
+    }
+
+    public Exercise getExer() {
         return exer;
     }
 
-    public void setDExer(Exercise exer) {
+    public void setExer(Exercise exer) {
         this.exer = exer;
     }
-
-    @ColumnInfo(name = "categories") public int categories;
-
-
-    @Embedded
-    public Exercise exer;
 }
