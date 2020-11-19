@@ -12,7 +12,7 @@ import java.util.List;
 public class ExerciseRepository {
     // 싱글톤
     private static ExerciseRepository sInstance;
-    private ExerciseDao mExerDao;
+    private final ExerciseDao mExerDao;
 
     public ExerciseRepository(final Application application) {
         AppDatabase db = AppDatabase.getInstance(application);

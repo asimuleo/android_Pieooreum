@@ -23,7 +23,10 @@ import static com.smu.team_andeu.utilities.ConstantsKt.DATABASE_NAME;
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract ExerciseDao exerDao();
-    // TODO: 하나 더 만들어야함.
+
+    public abstract RoutineWithDexersDao routineWithDexersDao();
+
+    public abstract GroupWithExersDao groupWithExersDao();
 
     //매 번 변수의 값을 Read할 때마다 CPU cache에 저장된 값이 아닌 Main Memory에서 읽는 것입니다.
     private static volatile AppDatabase INSTANCE;
@@ -64,6 +67,7 @@ public abstract class AppDatabase extends RoomDatabase {
                 //.addMigrations(MIGRATION_1_2)
                 .build();
     }
+
 
 //    private static final Migration MIGRATION_1_2 = new Migration(1, 2) {
 //

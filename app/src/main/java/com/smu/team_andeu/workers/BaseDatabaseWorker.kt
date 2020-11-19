@@ -31,6 +31,8 @@ class BaseDatabaseWorker(
                     Result.success()
                 }
             }
+
+
         } catch (ex: Exception) {
             Log.e(TAG, "Error base database")
             Result.failure()

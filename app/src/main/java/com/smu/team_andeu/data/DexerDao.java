@@ -8,6 +8,8 @@ import androidx.room.Query;
 
 import java.util.List;
 
+
+// 아마 필요 하지 않을 것입니다.
 @Dao
 public interface DexerDao {
 
