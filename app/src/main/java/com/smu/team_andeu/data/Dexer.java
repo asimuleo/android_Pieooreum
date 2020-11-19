@@ -1,7 +1,5 @@
 package com.smu.team_andeu.data;
 
-import androidx.room.ColumnInfo;
-import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -9,27 +7,26 @@ import androidx.room.PrimaryKey;
 public class Dexer {
     @PrimaryKey
     private int dexer_id;
+    // 내가 속한 Exer
+    private int exerOwnerId;
+    // 내가 속한 Routine
+    private int d_routineId;
 
     private String d_nicname;
     private int d_count;
     private int d_time;
     private int d_calories;
-    private int d_routineId;
     private int d_categories;
 
-    @Embedded(prefix = "d_exer_")
-    private Exercise exer;
-
-
-    public Dexer(int dexer_id, String d_nicname, int d_count, int d_time, int d_calories, int d_routineId, int d_categories, Exercise exer) {
+    public Dexer(int dexer_id, int exerOwnerId, String d_nicname, int d_count, int d_time, int d_calories, int d_routineId, int d_categories) {
         this.dexer_id = dexer_id;
+        this.exerOwnerId = exerOwnerId;
         this.d_nicname = d_nicname;
         this.d_count = d_count;
         this.d_time = d_time;
         this.d_calories = d_calories;
         this.d_routineId = d_routineId;
         this.d_categories = d_categories;
-        this.exer = exer;
     }
 
     public int getDexer_id() {
@@ -38,6 +35,14 @@ public class Dexer {
 
     public void setDexer_id(int dexer_id) {
         this.dexer_id = dexer_id;
+    }
+
+    public int getExerOwnerId() {
+        return exerOwnerId;
+    }
+
+    public void setExerOwnerId(int exerOwnerId) {
+        this.exerOwnerId = exerOwnerId;
     }
 
     public String getD_nicname() {
@@ -86,13 +91,5 @@ public class Dexer {
 
     public void setD_categories(int d_categories) {
         this.d_categories = d_categories;
-    }
-
-    public Exercise getExer() {
-        return exer;
-    }
-
-    public void setExer(Exercise exer) {
-        this.exer = exer;
     }
 }

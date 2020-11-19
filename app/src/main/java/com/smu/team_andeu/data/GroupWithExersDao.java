@@ -22,9 +22,4 @@ public interface GroupWithExersDao {
     @Query("SELECT * FROM GROUP_TABLE WHERE groupId = :gId")
     LiveData<List<GroupWithExers>> getGroupWithExers(int gId);
 
-    // GroupWithExers 객체를 만들어서 튜플로서 삽입합니다.
-    @Transaction
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(GroupWithExersDao groupWithExersDao);
-
 }

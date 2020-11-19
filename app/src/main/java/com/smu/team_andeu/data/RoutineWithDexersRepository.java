@@ -37,7 +37,4 @@ public class RoutineWithDexersRepository {
         return routineWithDexersDao.getRoutineWithDexers(rId);
     }
 
-    public void insertRoutine(RoutineWithDexers routineWithDexers) {
-        routineWithDexersDao.insert(routineWithDexers);
-    }
 }

@@ -8,7 +8,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.smu.team_andeu.MainActivity;
 import com.smu.team_andeu.data.Exercise;
 import com.smu.team_andeu.data.ExerciseRepository;
 

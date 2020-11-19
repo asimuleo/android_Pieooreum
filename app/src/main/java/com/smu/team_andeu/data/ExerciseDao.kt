@@ -15,8 +15,8 @@ interface ExerciseDao {
     fun getExers(): LiveData<List<Exercise>>
 
     // id로 찾기
-    @Query("SELECT * FROM exers WHERE id = :exerId")
-    fun getExer(exerId: Int): LiveData<Exercise>
+    @Query("SELECT * FROM exers WHERE exerId = :eId")
+    fun getExer(eId: Int): LiveData<Exercise>
 
     // group으로 찾기
     @Query("SELECT * FROM exers WHERE 'group' = :group ORDER BY name")
@@ -27,7 +27,7 @@ interface ExerciseDao {
     suspend fun insertAll(exers: List<Exercise>)
 
     // query를 통한 검색
-    @Query("SELECT exers.* FROM exers JOIN exersFts ON (exers.id = exersFts.rowid) WHERE exersFts MATCH :query")
+    @Query("SELECT exers.* FROM exers JOIN exersFts ON (exers.exerId = exersFts.rowid) WHERE exersFts MATCH :query")
     fun searchExers(query: String): LiveData<List<Exercise>>
 
 }

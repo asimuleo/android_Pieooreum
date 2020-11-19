@@ -20,12 +20,7 @@ public interface RoutineWithDexersDao {
 
     // 해당하는 루틴의 튜플을 반환합니다.
     @Transaction
-    @Query("SELECT * FROM routine_table WHERE routineId = :rid")
-    LiveData<RoutineWithDexers> getRoutineWithDexers(int rid);
+    @Query("SELECT * FROM routine_table WHERE routineId = :rId")
+    LiveData<RoutineWithDexers> getRoutineWithDexers(int rId);
 
-
-    // RoutineWithDexers 객체를 만들어서 튜플로서 삽입합니다.
-    @Transaction
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(RoutineWithDexers routineWithDexers);
 }

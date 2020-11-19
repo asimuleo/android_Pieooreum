@@ -11,7 +11,9 @@ import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 import androidx.work.WorkRequest;
 
-import com.smu.team_andeu.workers.BaseDatabaseWorker;
+import com.smu.team_andeu.workers.BaseExerDatabaseWorker;
+import com.smu.team_andeu.workers.BaseGroupDatabaseWorker;
+import com.smu.team_andeu.workers.BaseGroupExerCrossRefWorker;
 
 import static com.smu.team_andeu.utilities.ConstantsKt.DATABASE_NAME;
 
@@ -19,14 +21,22 @@ import static com.smu.team_andeu.utilities.ConstantsKt.DATABASE_NAME;
 // https://medium.com/androiddevelopers/understanding-migrations-with-room-f01e04b07929
 
 
-@Database(entities = {Exercise.class, ExerciseFts.class}, version = 1, exportSchema = false)
+@Database(entities = {Exercise.class, ExerciseFts.class, Dexer.class, Group.class, GroupExerCrossRef.class, Routine.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
+
+    public abstract DexerDao dexerDao();
 
     public abstract ExerciseDao exerDao();
 
     public abstract RoutineWithDexersDao routineWithDexersDao();
 
     public abstract GroupWithExersDao groupWithExersDao();
+
+    public abstract RoutineDao routineDao();
+
+    public abstract GroupDao groupDao();
+
+    public abstract GroupExerCrossRefDao groupExerCrossRefDao();
 
     //매 번 변수의 값을 Read할 때마다 CPU cache에 저장된 값이 아닌 Main Memory에서 읽는 것입니다.
     private static volatile AppDatabase INSTANCE;
@@ -59,8 +69,13 @@ public abstract class AppDatabase extends RoomDatabase {
                             public void onCreate(@NonNull SupportSQLiteDatabase db) {
                                 super.onCreate(db);
                                 // Worker를 통해 request를 만들어 WorkManager에게 위임.
-                                WorkRequest request = new OneTimeWorkRequest.Builder(BaseDatabaseWorker.class).build();
-                                WorkManager.getInstance(context).enqueue(request);
+                                WorkRequest exerRequest = new OneTimeWorkRequest.Builder(BaseExerDatabaseWorker.class).build();
+                                WorkRequest groupRequest = new OneTimeWorkRequest.Builder(BaseGroupDatabaseWorker.class).build();
+                                WorkRequest crossRequest = new OneTimeWorkRequest.Builder(BaseGroupExerCrossRefWorker.class).build();
+                                // 새로운 Worker 삽입 가능.
+                                WorkManager.getInstance(context).enqueue(exerRequest);
+                                WorkManager.getInstance(context).enqueue(groupRequest);
+                                WorkManager.getInstance(context).enqueue(crossRequest);
                             }
                         }
                 )

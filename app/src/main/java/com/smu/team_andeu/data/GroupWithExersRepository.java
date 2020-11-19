@@ -37,7 +37,4 @@ public class GroupWithExersRepository {
         return groupWithExersDao.getGroupWithExers(gId);
     }
 
-    public void insertGroup(GroupWithExersDao groupWithExersDao) {
-        groupWithExersDao.insert(groupWithExersDao);
-    }
 }

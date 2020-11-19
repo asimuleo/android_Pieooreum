@@ -24,9 +24,4 @@ public interface DexerDao {
     // Dexer의 Id로 부터 Dexer를 얻는 함수.
     @Query("SELECT * FROM dexer_table WHERE dexer_id = :dexer_id")
     LiveData<Dexer> getDexer(int dexer_id);
-
-    // 가나다 순으로 모든 Dexer를 얻는 함수
-    @Query("SELECT * FROM dexer_table  ORDER BY d_exer_name ASC")
-    LiveData<List<Dexer>> getDexers();
-
 }
