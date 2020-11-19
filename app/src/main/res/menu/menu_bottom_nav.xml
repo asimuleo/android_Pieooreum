@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mypage"
+        android:icon="@drawable/ic_mypage_24"
+        android:contentDescription="@string/mn_mypage"
+        android:title="@string/title_mypage" />
+    <item
+        android:id="@+id/training"
+        android:icon="@drawable/ic_training_24"
+        android:contentDescription="@string/mn_training"
+        android:title="@string/title_training" />
+    <item
+        android:id="@+id/routine"
+        android:icon="@drawable/ic_routine_24"
+        android:contentDescription="@string/mn_routine"
+        android:title="@string/title_routine" />
+    <item
+        android:id="@+id/setting"
+        android:icon="@drawable/ic_setting_24"
+        android:contentDescription="@string/mn_setting"
+        android:title="@string/title_setting" />
+
+</menu>

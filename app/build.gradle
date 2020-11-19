@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId "com.smu.team_andeu"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -82,5 +82,15 @@ dependencies {
     androidTestImplementation "androidx.annotation:annotation:1.1.0"
     androidTestImplementation "androidx.appcompat:appcompat:1.3.0-alpha02"
     androidTestImplementation "com.google.android.material:material:1.2.1"
+
+    // 디자인
+    implementation 'com.google.android.material:material:1.3.0-alpha03'
+
+    //Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$rootProject.navigationVersion"
+    implementation "androidx.navigation:navigation-fragment:$rootProject.navigationVersion"
+    implementation "androidx.navigation:navigation-ui:$rootProject.navigationVersion"
+
 }
 

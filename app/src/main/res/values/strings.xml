@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">team_Andeu</string>
+    <string name="pho_app_name">Phome</string>
     <string name="cd_exer_name">Name of the exercise</string>
     <string name="serach_product">serach product…</string>
     <string name="loading_exer">Loading exercises…</string>
@@ -10,4 +10,14 @@
     <string name="button_start">Start</string>
     <string name="button_calendar">calendar</string>
     <string name="button_myPage">MyPage</string>
+    <string name="pho_search_title">Search</string>
+    <string name="pho_filter_title">Filter</string>
+    <string name="mn_mypage">mypage</string>
+    <string name="mn_training">training</string>
+    <string name="mn_routine">routine</string>
+    <string name="mn_setting">setting</string>
+    <string name="title_mypage">My Page</string>
+    <string name="title_training">Training</string>
+    <string name="title_routine">Routines</string>
+    <string name="title_setting">Settings</string>
 </resources>
