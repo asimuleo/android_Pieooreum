@@ -4,6 +4,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:itemBackground">@color/productGridBackgroundColor</item>
     </style>
 
     <style name="Widget.Phome.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -48,6 +49,10 @@
 
     <style name="Widget.Phome.Backdrop" parent="">
         <item name="android:background">?attr/colorAccent</item>
+    </style>
+
+    <style name="Widget.Phome.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="background">@color/secondary</item>
     </style>
 
 </resources>
