@@ -9,32 +9,32 @@
         android:id="@+id/home_dest"
         android:name="com.smu.team_andeu.nav.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/home_fragment"/>
+        tools:layout="@layout/home_fragment" />
     <fragment
         android:id="@+id/myPage_dest"
         android:name="com.smu.team_andeu.nav.MyPageFragment"
         android:label="MyPageFragment"
-        tools:layout="@layout/mypage_fragment"/>
+        tools:layout="@layout/mypage_fragment" />
     <fragment
         android:id="@+id/routine_dest"
         android:name="com.smu.team_andeu.nav.RoutineFragment"
         android:label="RoutineFragment"
-        tools:layout="@layout/routine_fragment"/>
+        tools:layout="@layout/routine_fragment" />
     <fragment
         android:id="@+id/training_dest"
         android:name="com.smu.team_andeu.nav.TrainingFragment"
         android:label="TrainingFragment"
-        tools:layout="@layout/training_fragment"/>
+        tools:layout="@layout/training_fragment" />
     <fragment
         android:id="@+id/setting_dest"
         android:name="com.smu.team_andeu.nav.SettingFragment"
         android:label="SettingFragment"
-        tools:layout="@layout/setting_fragment"/>
+        tools:layout="@layout/setting_fragment" />
     <fragment
-        android:id="@+id/detail_routine_dest"
-        android:name="com.smu.team_andeu.nav.DRoutineFragment"
+        android:id="@+id/add_exer_dest"
+        android:name="com.smu.team_andeu.nav.AddExerFragment"
         android:label="DRoutineFragment"
-        tools:layout="@layout/d_routine_fragment">
+        tools:layout="@layout/add_exer_fragment">
         <action
             android:id="@+id/action_DRoutineFragment_to_DExerFragment"
             app:destination="@id/detail_exer_dest" />
@@ -43,5 +43,17 @@
         android:id="@+id/detail_exer_dest"
         android:name="com.smu.team_andeu.nav.DExerFragment"
         android:label="DExerFragment"
-        tools:layout="@layout/d_exer_fragment"/>
+        tools:layout="@layout/d_exer_fragment" />
+    <fragment
+        android:id="@+id/detail_routine_dest"
+        android:name="com.smu.team_andeu.nav.DRoutineFragment"
+        android:label="DRoutineFragment"
+        tools:layout="@layout/d_routine_fragment">
+        <action
+            android:id="@+id/action_detail_routine_dest_to_add_exer_dest"
+            app:destination="@id/add_exer_dest" />
+        <action
+            android:id="@+id/action_detail_routine_dest_to_detail_exer_dest"
+            app:destination="@id/detail_exer_dest" />
+    </fragment>
 </navigation>

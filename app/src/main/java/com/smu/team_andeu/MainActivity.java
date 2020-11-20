@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 || super.onOptionsItemSelected(item);
     }
 
-    public void show(Exer exer) {
+    public void showExer(Exer exer) {
         Bundle bundle = DExerFragment.getBundleWithId(exer.getExerId());
         navController.navigate(R.id.action_DRoutineFragment_to_DExerFragment, bundle);
     }

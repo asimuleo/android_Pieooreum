@@ -1,59 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <data>
-
-        <variable
-            name="isLoading"
-            type="boolean" />
-    </data>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/cardview_dark_background"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/item_horizontal_margin"
-            android:layout_marginLeft="@dimen/item_horizontal_margin"
-            android:orientation="horizontal">
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/exer_search_box"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="@string/serach_product" />
-
-            <ImageButton
-                android:id="@+id/exer_search_button"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:contentDescription="@string/serach_product"
-                app:srcCompat="@drawable/ic_search_24" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/loading"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="@string/loading_exer"
-            android:textAlignment="center"
-            app:visibleGone="@{isLoading}" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/exers_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/exers_list"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:visibleGone="@{!isLoading}" />
-    </LinearLayout>
-
-
-</layout>
+    <Button
+        android:id="@+id/add_exer_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Add"
+        style="@style/Widget.Phome.Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

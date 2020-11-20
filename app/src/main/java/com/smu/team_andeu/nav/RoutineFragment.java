@@ -12,8 +12,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.smu.team_andeu.R;
+import com.smu.team_andeu.databinding.RoutineFragmentBinding;
 
 public class RoutineFragment extends Fragment {
+
+    private
+
+    RoutineFragmentBinding mBinding;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
