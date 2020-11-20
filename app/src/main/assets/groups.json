@@ -2,5 +2,9 @@
   {
     "groupId": "0",
     "g_name": "test group"
+  },
+  {
+    "groupId": "1",
+    "g_name": "Arm"
   }
 ]

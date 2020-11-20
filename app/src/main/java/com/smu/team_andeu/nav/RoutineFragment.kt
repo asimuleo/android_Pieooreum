@@ -2,10 +2,13 @@ package com.smu.team_andeu.nav
 
 import android.os.Bundle
 import android.view.*
+import androidx.databinding.BindingBuildInfo
 import androidx.fragment.app.Fragment
 import com.smu.team_andeu.R
 
 class RoutineFragment: Fragment() {
+
+
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -19,7 +22,7 @@ class RoutineFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-
+    override fun onDestroyView() {
+        super.onDestroyView()
     }
 }
