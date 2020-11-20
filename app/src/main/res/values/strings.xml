@@ -20,4 +20,6 @@
     <string name="title_training">Training</string>
     <string name="title_routine">Routines</string>
     <string name="title_setting">Settings</string>
+    <string name="loading_routines">Loading Routines…</string>
+    <string name="routines_list">Routines list</string>
 </resources>
