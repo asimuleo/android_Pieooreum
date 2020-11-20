@@ -32,7 +32,7 @@ public class ExerListFragment extends Fragment {
     // 콜백 생성
     private final ExerClickCallback mExerClickCallback = exer -> {
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-            ((ExerActivity) requireActivity()).show(exer);
+            ((MainActivity) requireActivity()).show(exer);
         }
     };
 

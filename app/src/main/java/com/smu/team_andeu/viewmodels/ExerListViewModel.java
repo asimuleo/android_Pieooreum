@@ -15,18 +15,19 @@ import com.smu.team_andeu.data.ExerciseRepository;
 
 import java.util.List;
 
+// 당신이 ExerList 정보를 얻고 싶다면 이 클래스를 이용하면 된다.
 public class ExerListViewModel extends AndroidViewModel {
     private static final String QUERY_KEY = "QUERY";
 
-    private SavedStateHandle mSavedStateHandler;
-    private ExerciseRepository exerciseRepository;
-    private LiveData<List<Exercise>> mExers;
+    private final SavedStateHandle mSavedStateHandler;
+    private final ExerciseRepository exerciseRepository;
+    private final LiveData<List<Exercise>> mExers;
 
     public ExerListViewModel(@NonNull Application application,
                              @NonNull SavedStateHandle savedStateHandle) {
         super(application);
         mSavedStateHandler = savedStateHandle;
-        exerciseRepository = new ExerciseRepository(application);
+        exerciseRepository = ExerciseRepository.getInstance(application);
         mExers = Transformations.switchMap(
                 savedStateHandle.getLiveData("QUERY", null),
                 (Function<CharSequence, LiveData<List<Exercise>>>) query -> {

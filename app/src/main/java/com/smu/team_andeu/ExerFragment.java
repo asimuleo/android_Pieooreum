@@ -64,12 +64,9 @@ public class ExerFragment extends Fragment {
         super.onDestroyView();
     }
 
-    // 특정한 id를 통해 exer fragment 를 생성 후 반환.
-    public static ExerFragment forExer(int exerId) {
-        ExerFragment fragment = new ExerFragment();
+    public static Bundle getBundleWithId(int exerId) {
         Bundle args = new Bundle();
         args.putInt(KEY_Exer_ID, exerId);
-        fragment.setArguments(args);
-        return fragment;
+        return args;
     }
 }
