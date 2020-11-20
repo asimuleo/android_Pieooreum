@@ -1,4 +1,4 @@
-package com.smu.team_andeu;
+package com.smu.team_andeu.nav;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,13 +11,14 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.smu.team_andeu.databinding.FragmentExerBinding;
+import com.smu.team_andeu.R;
+import com.smu.team_andeu.databinding.DExerFragmentBinding;
 import com.smu.team_andeu.viewmodels.ExerViewModel;
 
-public class ExerFragment extends Fragment {
+public class DExerFragment extends Fragment {
     private static final String KEY_Exer_ID = "exer_id";
 
-    FragmentExerBinding mBinding;
+    DExerFragmentBinding mBinding;
 
     //TODO Something을 위한 어뎁터가 필요함.
 
@@ -26,7 +27,7 @@ public class ExerFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         // Inflate this data binding layout
-        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_exer, container, false);
+        mBinding = DataBindingUtil.inflate(inflater, R.layout.d_exer_fragment, container, false);
 
         //TODO  Create and set the adapter for the RecyclerView
 

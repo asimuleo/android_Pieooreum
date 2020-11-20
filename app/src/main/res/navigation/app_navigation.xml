@@ -34,7 +34,7 @@
         android:id="@+id/detail_routine_dest"
         android:name="com.smu.team_andeu.nav.DRoutineFragment"
         android:label="DRoutineFragment"
-        tools:layout="@layout/detail_routine_fragment">
+        tools:layout="@layout/d_routine_fragment">
         <action
             android:id="@+id/action_DRoutineFragment_to_DExerFragment"
             app:destination="@id/detail_exer_dest" />
@@ -43,5 +43,5 @@
         android:id="@+id/detail_exer_dest"
         android:name="com.smu.team_andeu.nav.DExerFragment"
         android:label="DExerFragment"
-        tools:layout="@layout/detail_exer_fragment"/>
+        tools:layout="@layout/d_exer_fragment"/>
 </navigation>

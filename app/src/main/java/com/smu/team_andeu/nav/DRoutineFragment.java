@@ -1,4 +1,4 @@
-package com.smu.team_andeu;
+package com.smu.team_andeu.nav;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -14,20 +14,23 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.smu.team_andeu.MainActivity;
+import com.smu.team_andeu.R;
 import com.smu.team_andeu.adapters.ExerListAdapter;
 import com.smu.team_andeu.callback.ExerClickCallback;
+
 import com.smu.team_andeu.data.Exercise;
-import com.smu.team_andeu.databinding.FragmentExerListBinding;
+import com.smu.team_andeu.databinding.DRoutineFragmentBinding;
 import com.smu.team_andeu.viewmodels.ExerListViewModel;
 
 import java.util.List;
 
-public class ExerListFragment extends Fragment {
+public class DRoutineFragment extends Fragment {
     public static final String TAG = "ExerListFragment";
 
     private ExerListAdapter mExerListAdapter;
 
-    FragmentExerListBinding mBinding;
+    DRoutineFragmentBinding mBinding;
 
     // 콜백 생성
     private final ExerClickCallback mExerClickCallback = exer -> {
@@ -39,7 +42,7 @@ public class ExerListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mBinding =  DataBindingUtil.inflate(inflater, R.layout.fragment_exer_list, container, false);
+        mBinding =  DataBindingUtil.inflate(inflater, R.layout.d_routine_fragment, container, false);
 
         // 프래그먼트 생성과 함께 어댑터 생성
         mExerListAdapter = new ExerListAdapter(mExerClickCallback);

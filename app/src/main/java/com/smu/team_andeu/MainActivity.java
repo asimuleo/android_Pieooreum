@@ -22,6 +22,7 @@ import android.widget.Button;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.smu.team_andeu.model.Exer;
+import com.smu.team_andeu.nav.DExerFragment;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void show(Exer exer) {
-        Bundle bundle = ExerFragment.getBundleWithId(exer.getExerId());
+        Bundle bundle = DExerFragment.getBundleWithId(exer.getExerId());
         navController.navigate(R.id.action_DRoutineFragment_to_DExerFragment, bundle);
     }
 
