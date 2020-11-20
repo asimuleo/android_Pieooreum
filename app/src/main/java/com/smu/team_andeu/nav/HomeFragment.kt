@@ -3,6 +3,7 @@ package com.smu.team_andeu.nav
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.navigation.ui.onNavDestinationSelected
 import com.smu.team_andeu.R
 
 class HomeFragment : Fragment() {
@@ -22,4 +23,5 @@ class HomeFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.main_menu, menu)
     }
+
 }
