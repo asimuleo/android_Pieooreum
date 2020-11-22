@@ -23,4 +23,9 @@ public interface RoutineWithDexersDao {
     @Query("SELECT * FROM routine_table WHERE routineId = :rId")
     LiveData<RoutineWithDexers> getRoutineWithDexers(int rId);
 
+    // 카테고리는 0,1,2 존재합니다.
+    @Transaction
+    @Query("SELECT * FROM routine_table WHERE category = :category")
+    LiveData<List<RoutineWithDexers>> getRoutinesByCategory(int category);
+
 }

@@ -16,6 +16,8 @@ import androidx.navigation.Navigation;
 import com.smu.team_andeu.R;
 
 public class DRoutineFragment extends Fragment {
+    private static final String KEY_ROUTINE_ID = "routine_id";
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -39,5 +41,11 @@ public class DRoutineFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+    }
+
+    public static Bundle getBundleWithId(int routineId) {
+        Bundle args = new Bundle();
+        args.putInt(KEY_ROUTINE_ID, routineId);
+        return args;
     }
 }

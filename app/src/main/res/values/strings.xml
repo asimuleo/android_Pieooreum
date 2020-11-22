@@ -22,4 +22,7 @@
     <string name="title_setting">Settings</string>
     <string name="loading_routines">Loading Routines…</string>
     <string name="routines_list">Routines list</string>
+    <string name="favorites">Favorites</string>
+    <string name="basic">Basic</string>
+    <string name="phomer">Phomer</string>
 </resources>

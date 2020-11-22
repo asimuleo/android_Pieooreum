@@ -21,8 +21,10 @@ import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.smu.team_andeu.data.RoutineWithDexers;
 import com.smu.team_andeu.model.Exer;
 import com.smu.team_andeu.nav.DExerFragment;
+import com.smu.team_andeu.nav.DRoutineFragment;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -76,9 +78,16 @@ public class MainActivity extends AppCompatActivity {
                 || super.onOptionsItemSelected(item);
     }
 
+    // for Exer List
     public void showExer(Exer exer) {
         Bundle bundle = DExerFragment.getBundleWithId(exer.getExerId());
         navController.navigate(R.id.action_DRoutineFragment_to_DExerFragment, bundle);
+    }
+
+    // for Routine List
+    public void showRoutine(RoutineWithDexers routineWithDexers) {
+        Bundle bundle = DRoutineFragment.getBundleWithId(routineWithDexers.getRoutine().getRoutineId());
+        navController.navigate(R.id.action_routine_dest_to_detail_routine_dest, bundle);
     }
 
 }

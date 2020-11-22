@@ -11,13 +11,15 @@ public class Routine {
     private double r_totalCal;
     private int r_totalTime;
     private String r_summary;
+    private int category;
 
-    public Routine(int routineId, String r_name, double r_totalCal, int r_totalTime, String r_summary) {
+    public Routine(int routineId, String r_name, double r_totalCal, int r_totalTime, String r_summary, int category) {
         this.routineId = routineId;
         this.r_name = r_name;
         this.r_totalCal = r_totalCal;
         this.r_totalTime = r_totalTime;
         this.r_summary = r_summary;
+        this.category = category;
     }
 
     public int getRoutineId() {
@@ -58,6 +60,14 @@ public class Routine {
 
     public void setR_summary(String r_summary) {
         this.r_summary = r_summary;
+    }
+
+    public int getCategory() {
+        return category;
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
     }
 }
 

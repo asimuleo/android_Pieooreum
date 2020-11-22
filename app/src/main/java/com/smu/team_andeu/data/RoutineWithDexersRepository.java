@@ -37,4 +37,8 @@ public class RoutineWithDexersRepository {
         return routineWithDexersDao.getRoutineWithDexers(rId);
     }
 
+    public LiveData<List<RoutineWithDexers>> getRoutinesByCategory(int category) {
+        return routineWithDexersDao.getRoutinesByCategory(category);
+    }
+
 }

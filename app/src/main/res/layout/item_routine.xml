@@ -5,21 +5,20 @@
     <data>
 
         <variable
-            name="exer"
-            type="com.smu.team_andeu.model.Exer" />
+            name="routine"
+            type="com.smu.team_andeu.data.RoutineWithDexers" />
 
         <variable
             name="callback"
-            type="com.smu.team_andeu.callback.ExerClickCallback" />
+            type="com.smu.team_andeu.callback.RoutineClickCallback" />
     </data>
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/item_horizontal_margin"
         android:layout_marginEnd="@dimen/item_horizontal_margin"
-        android:minHeight="@dimen/exer_item_min_height"
-        android:onClick="@{()-> callback.onCLick(exer)}"
+        android:maxHeight="@dimen/exer_item_min_height"
+        android:onClick="@{()-> callback.onCLick(routine)}"
         android:orientation="horizontal"
         app:cardUseCompatPadding="true">
 
@@ -34,23 +33,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/cd_exer_name"
-                android:text="@{exer.name}" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginEnd="5dp"
-                android:layout_marginRight="5dp"
-                android:text="@{@string/exer_cal(exer.calorie)}" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/name"
-                app:renderHtml="@{exer.description}"
-                android:layout_marginTop="10dp"/>
+                android:text="@{routine.routine.r_name}" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
+
 </layout>

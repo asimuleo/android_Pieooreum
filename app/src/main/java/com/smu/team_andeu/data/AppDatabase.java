@@ -11,9 +11,11 @@ import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 import androidx.work.WorkRequest;
 
+import com.smu.team_andeu.workers.BaseDexerDatabaseWorker;
 import com.smu.team_andeu.workers.BaseExerDatabaseWorker;
 import com.smu.team_andeu.workers.BaseGroupDatabaseWorker;
 import com.smu.team_andeu.workers.BaseGroupExerCrossRefWorker;
+import com.smu.team_andeu.workers.BaseRoutineDatabaseWorker;
 
 import static com.smu.team_andeu.utilities.ConstantsKt.DATABASE_NAME;
 
@@ -72,10 +74,15 @@ public abstract class AppDatabase extends RoomDatabase {
                                 WorkRequest exerRequest = new OneTimeWorkRequest.Builder(BaseExerDatabaseWorker.class).build();
                                 WorkRequest groupRequest = new OneTimeWorkRequest.Builder(BaseGroupDatabaseWorker.class).build();
                                 WorkRequest crossRequest = new OneTimeWorkRequest.Builder(BaseGroupExerCrossRefWorker.class).build();
+                                WorkRequest dexerRequest = new OneTimeWorkRequest.Builder(BaseDexerDatabaseWorker.class).build();
+                                WorkRequest routineRequest = new OneTimeWorkRequest.Builder(BaseRoutineDatabaseWorker.class).build();
                                 // 새로운 Worker 삽입 가능.
                                 WorkManager.getInstance(context).enqueue(exerRequest);
                                 WorkManager.getInstance(context).enqueue(groupRequest);
                                 WorkManager.getInstance(context).enqueue(crossRequest);
+                                WorkManager.getInstance(context).enqueue(dexerRequest);
+                                WorkManager.getInstance(context).enqueue(routineRequest);
+
                             }
                         }
                 )

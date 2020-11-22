@@ -92,5 +92,10 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment:$rootProject.navigationVersion"
     implementation "androidx.navigation:navigation-ui:$rootProject.navigationVersion"
 
+    // ViewPager2
+
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+
+
 }
 

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.smu.team_andeu.R;
 import com.smu.team_andeu.callback.ExerClickCallback;
-import com.smu.team_andeu.databinding.ExerItemBinding;
+import com.smu.team_andeu.databinding.ItemExerBinding;
 import com.smu.team_andeu.model.Exer;
 
 import java.util.List;
@@ -55,7 +55,7 @@ public class ExerListAdapter extends RecyclerView.Adapter<ExerListAdapter.ExerVi
                 @Override
                 public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
                     Exer newExer = exerList.get(newItemPosition);
-                    Exer oldExer = exerList.get(oldItemPosition);
+                    Exer oldExer = mExerList.get(oldItemPosition);
                     return newExer.getExerId() == oldExer.getExerId()
                             && TextUtils.equals(newExer.getDescription(), oldExer.getDescription())
                             && TextUtils.equals(newExer.getName(), oldExer.getName())
@@ -73,8 +73,8 @@ public class ExerListAdapter extends RecyclerView.Adapter<ExerListAdapter.ExerVi
     @Override
     public ExerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // 바인딩 유틸을 통해 inflate한 후 뷰홀더를 생성
-        ExerItemBinding binding = DataBindingUtil
-                .inflate(LayoutInflater.from(parent.getContext()), R.layout.exer_item,
+        ItemExerBinding binding = DataBindingUtil
+                .inflate(LayoutInflater.from(parent.getContext()), R.layout.item_exer,
                         parent, false);
         binding.setCallback(mExerClickCallback);
         return new ExerViewHolder(binding);
@@ -98,9 +98,9 @@ public class ExerListAdapter extends RecyclerView.Adapter<ExerListAdapter.ExerVi
 
     static class ExerViewHolder extends RecyclerView.ViewHolder {
 
-        final ExerItemBinding binding;
+        final ItemExerBinding binding;
 
-        public ExerViewHolder(@NonNull ExerItemBinding binding) {
+        public ExerViewHolder(@NonNull ItemExerBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

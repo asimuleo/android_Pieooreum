@@ -22,7 +22,7 @@
         android:orientation="vertical">
 
         <include
-            layout="@layout/exer_item"
+            layout="@layout/item_exer"
             app:exer="@{exerViewModel.exer}" />
 
         <FrameLayout
