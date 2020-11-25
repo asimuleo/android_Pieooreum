@@ -6,20 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical">
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/main_app_bar"
-            style="@style/Widget.Phome.Toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:navigationIcon="@drawable/pho_menu"
-            app:title="@string/pho_app_name"/>
-    </com.google.android.material.appbar.AppBarLayout>
-
-
     <fragment
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -36,7 +22,7 @@
         android:id="@+id/bottom_nav"
         app:menu="@menu/menu_bottom_nav"
         app:itemBackground="@color/productGridBackgroundColor"
-        app:itemTextColor="@color/textColorPrimary"
+        app:labelVisibilityMode="unlabeled"
         />
 
 </LinearLayout>

@@ -13,6 +13,8 @@ public class Routine {
     private String r_summary;
     private int category;
 
+    private int count;
+
     public Routine(int routineId, String r_name, double r_totalCal, int r_totalTime, String r_summary, int category) {
         this.routineId = routineId;
         this.r_name = r_name;

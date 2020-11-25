@@ -1,10 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.Phome" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/secondary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:itemBackground">@color/productGridBackgroundColor</item>
+        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView.Colored</item>
+        <item name="colorOnPrimary">@color/black</item>
     </style>
 
     <style name="Widget.Phome.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -20,10 +22,11 @@
 
     <style name="Widget.Phome.Button" parent="Widget.MaterialComponents.Button">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
-        <item name="backgroundTint">?attr/colorPrimaryDark</item>
+        <item name="backgroundTint">@color/white</item>
         <item name="android:stateListAnimator" tools:ignore="NewApi">
-            @animator/pho_next_button_state_list_anim
+            @null
         </item>
+        <item name="android:layout_margin">@dimen/routine_button_default_margin</item>
     </style>
 
     <style name="Widget.Phome.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
@@ -42,6 +45,12 @@
     </style>
 
     <style name="TextAppearance.Phome.Title" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.Phome.Title2" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="textAllCaps">true</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>

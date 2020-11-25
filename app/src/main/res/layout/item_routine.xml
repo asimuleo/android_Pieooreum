@@ -17,9 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/item_horizontal_margin"
         android:layout_marginEnd="@dimen/item_horizontal_margin"
-        android:maxHeight="@dimen/exer_item_min_height"
         android:onClick="@{()-> callback.onCLick(routine)}"
-        android:orientation="horizontal"
         app:cardUseCompatPadding="true">
 
         <RelativeLayout
@@ -33,7 +31,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/cd_exer_name"
-                android:text="@{routine.routine.r_name}" />
+                android:text="@{routine.routine.r_name}"
+                style="@style/TextAppearance.Phome.Title2"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="5dp"
+                android:text="@{@string/routine_cal(routine.routine.r_totalCal)}" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 

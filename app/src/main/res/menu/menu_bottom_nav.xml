@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/myPage_dest"
         android:icon="@drawable/ic_mypage_24"
+
         android:contentDescription="@string/mn_mypage"
-        android:title="@string/title_mypage" />
+        android:title="@string/title_mypage"
+        android:enabled="true"/>
     <item
         android:id="@+id/training_dest"
         android:icon="@drawable/ic_training_24"
         android:contentDescription="@string/mn_training"
-        android:title="@string/title_training" />
+        android:title="@string/title_training"
+        android:enabled="true" />
     <item
         android:id="@+id/routine_dest"
         android:icon="@drawable/ic_routine_24"
         android:contentDescription="@string/mn_routine"
-        android:title="@string/title_routine" />
+        android:title="@string/title_routine"
+        android:enabled="true"/>
     <item
         android:id="@+id/setting_dest"
         android:icon="@drawable/ic_setting_24"
         android:contentDescription="@string/mn_setting"
-        android:title="@string/title_setting" />
+        android:title="@string/title_setting"
+        android:enabled="true"
+        />
 
 </menu>
