@@ -14,8 +14,8 @@
                 android:thickness="10dp" >
                 <gradient
                     android:centerColor="@color/colorAccent"
-                    android:endColor="@color/colorPrimary"
-                    android:startColor="@color/colorPrimaryDark"
+                    android:endColor="@color/secondary"
+                    android:startColor="@color/colorAccent"
                     android:type="sweep" />
             </shape>
         </rotate>
