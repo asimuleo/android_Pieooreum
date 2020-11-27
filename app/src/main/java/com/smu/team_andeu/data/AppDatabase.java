@@ -1,9 +1,12 @@
 package com.smu.team_andeu.data;
 
 import android.content.Context;
+import android.database.Cursor;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.room.Database;
+import androidx.room.RewriteQueriesToDropUnusedColumns;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
@@ -21,7 +24,6 @@ import static com.smu.team_andeu.utilities.ConstantsKt.DATABASE_NAME;
 
 // 추후에 데이타베이스의 스키마를 변경하게 된다면 아래 참고
 // https://medium.com/androiddevelopers/understanding-migrations-with-room-f01e04b07929
-
 
 @Database(entities = {Exercise.class, ExerciseFts.class, Dexer.class, Group.class, GroupExerCrossRef.class, Routine.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
@@ -102,5 +104,6 @@ public abstract class AppDatabase extends RoomDatabase {
 //
 //        }
 //    };
+
 
 }

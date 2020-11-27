@@ -1,10 +1,15 @@
 package com.smu.team_andeu.data;
 
+import android.database.Cursor;
+
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.RewriteQueriesToDropUnusedColumns;
 
-@Entity(tableName = "routine_table")
-public class Routine {
+
+@Entity(tableName = "routine")
+public class Routine  {
     @PrimaryKey
     private int routineId;
     private String r_name;
@@ -12,17 +17,18 @@ public class Routine {
     private int r_totalTime;
     private String r_summary;
     private int category;
-
     private int count;
 
-    public Routine(int routineId, String r_name, double r_totalCal, int r_totalTime, String r_summary, int category) {
+    public Routine(int routineId, String r_name, double r_totalCal, int r_totalTime, String r_summary, int category, int count) {
         this.routineId = routineId;
         this.r_name = r_name;
         this.r_totalCal = r_totalCal;
         this.r_totalTime = r_totalTime;
         this.r_summary = r_summary;
         this.category = category;
+        this.count = count;
     }
+
 
     public int getRoutineId() {
         return routineId;
@@ -70,6 +76,14 @@ public class Routine {
 
     public void setCategory(int category) {
         this.category = category;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }
 

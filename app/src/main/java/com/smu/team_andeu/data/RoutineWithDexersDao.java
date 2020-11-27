@@ -14,18 +14,18 @@ public interface RoutineWithDexersDao {
 
     // 모든 튜플들을 다 반환합니다.
     @Transaction
-    @Query("SELECT * FROM routine_table")
+    @Query("SELECT * FROM routine")
     LiveData<List<RoutineWithDexers>> getRoutinesWithDexers();
 
 
     // 해당하는 루틴의 튜플을 반환합니다.
     @Transaction
-    @Query("SELECT * FROM routine_table WHERE routineId = :rId")
+    @Query("SELECT * FROM routine WHERE routineId = :rId")
     LiveData<RoutineWithDexers> getRoutineWithDexers(int rId);
 
     // 카테고리는 0,1,2 존재합니다.
     @Transaction
-    @Query("SELECT * FROM routine_table WHERE category = :category")
+    @Query("SELECT * FROM routine WHERE category = :category")
     LiveData<List<RoutineWithDexers>> getRoutinesByCategory(int category);
 
 }

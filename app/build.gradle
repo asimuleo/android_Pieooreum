@@ -61,6 +61,7 @@ dependencies {
     implementation "androidx.room:room-runtime:$rootProject.roomVersion"
     implementation "androidx.room:room-ktx:$rootProject.roomVersion"
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+    implementation "androidx.room:room-rxjava2:$rootProject.roomVersion"
     //fragment
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
     // Lifecycle components
@@ -93,9 +94,10 @@ dependencies {
     implementation "androidx.navigation:navigation-ui:$rootProject.navigationVersion"
 
     // ViewPager2
-
     implementation "androidx.viewpager2:viewpager2:1.0.0"
 
+    // 코루틴
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
 
 }
 
