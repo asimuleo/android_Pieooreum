@@ -1,8 +1,6 @@
 package com.smu.team_andeu.viewmodels;
 
 import android.app.Application;
-import android.text.TextUtils;
-
 import androidx.annotation.NonNull;
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.AndroidViewModel;
@@ -10,7 +8,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.Transformations;
 
-import com.smu.team_andeu.data.Exercise;
 import com.smu.team_andeu.data.RoutineWithDexers;
 import com.smu.team_andeu.data.RoutineWithDexersRepository;
 
@@ -32,7 +29,7 @@ public class RoutineListViewModel extends AndroidViewModel {
                 savedStateHandle.getLiveData("QUERY", null),
                 (Function<Integer, LiveData<List<RoutineWithDexers>>>) query -> {
                     // 카테고리가 설정되지 않았다면 다불러옴
-                    if (query == null) {
+                    if (query == null || query == -1) {
                         return routineWithDexersRepository.getRoutines();
                     }
                     return routineWithDexersRepository.getRoutinesByCategory(query);

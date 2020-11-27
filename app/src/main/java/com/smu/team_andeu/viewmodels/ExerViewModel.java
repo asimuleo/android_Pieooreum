@@ -14,16 +14,13 @@ import com.smu.team_andeu.data.ExerciseRepository;
 public class ExerViewModel extends AndroidViewModel {
     //TODO 운동 에 대한 세부사항의 데이타의 구현이 필요.
 
-    private LiveData<Exercise> mObservableExer;
-
-    private final int mExerId;
+    private final LiveData<Exercise> mObservableExer;
 
     public ExerViewModel(@NonNull Application application, ExerciseRepository repository,
                          final int exerId) {
         super(application);
-        mExerId = exerId;
 
-        mObservableExer = repository.getExerById(mExerId);
+        mObservableExer = repository.getExerById(exerId);
         //TODO 운동의 상세설명 에 필요한 내용을 다른 repository로 부터 가져오면 된다.
     }
 

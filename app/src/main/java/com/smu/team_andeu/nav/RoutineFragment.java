@@ -1,10 +1,7 @@
 package com.smu.team_andeu.nav;
 
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -21,7 +18,6 @@ import com.smu.team_andeu.MainActivity;
 import com.smu.team_andeu.R;
 import com.smu.team_andeu.adapters.RoutineListAdapter;
 import com.smu.team_andeu.callback.RoutineClickCallback;
-import com.smu.team_andeu.data.Exercise;
 import com.smu.team_andeu.data.RoutineWithDexers;
 import com.smu.team_andeu.databinding.RoutineFragmentBinding;
 import com.smu.team_andeu.viewmodels.RoutineListViewModel;
@@ -29,7 +25,6 @@ import com.smu.team_andeu.viewmodels.RoutineListViewModel;
 import java.util.List;
 
 public class RoutineFragment extends Fragment {
-    public static final String TAG = "RoutineFragment";
 
     private RoutineListAdapter mRoutineListAdapter;
 
@@ -61,7 +56,7 @@ public class RoutineFragment extends Fragment {
                 new ViewModelProvider(this).get(RoutineListViewModel.class);
 
         View.OnClickListener b = v -> {
-            int category = 0;
+            int category = -1;
             if(((Button)v).getText().equals("Favorites")){
                 category = 0;
             }else if(((Button)v).getText().equals("Basic")){
@@ -71,6 +66,7 @@ public class RoutineFragment extends Fragment {
             }
             viewModel.setQuery(category);
         };
+        mBinding.buttonAll.setOnClickListener(b);
         mBinding.buttonBasic.setOnClickListener(b);
         mBinding.buttonDefined.setOnClickListener(b);
         mBinding.buttonFavorites.setOnClickListener(b);

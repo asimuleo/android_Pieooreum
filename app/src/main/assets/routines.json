@@ -25,5 +25,14 @@
     "r_summary": "테스트 루틴 입니다. 루틴을 테스트 중입니다.",
     "category": "2",
     "count": "0"
+  },
+  {
+    "routineId":"3",
+    "r_name": "Test 루틴3",
+    "r_totalCal": "10",
+    "r_totalTime": "600",
+    "r_summary": "테스트 루틴 입니다. 루틴을 테스트 중입니다.",
+    "category": "0",
+    "count": "0"
   }
 ]

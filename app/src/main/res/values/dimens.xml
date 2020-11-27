@@ -2,5 +2,6 @@
 <resources>
     <dimen name="item_horizontal_margin">8dp</dimen>
     <dimen name="margin_default">11dp</dimen>
+    <dimen name="margin_default2">2dp</dimen>
     <dimen name="routine_button_default_margin">3dp</dimen>
 </resources>
