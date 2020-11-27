@@ -80,8 +80,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         int i = navController.getCurrentDestination().getId();
-        if (!navController.popBackStack()) {
-            int id;
+        if (i ==  R.id.routine_dest || i == R.id.setting_dest || i == R.id.training_dest) {
+            navController.popBackStack(R.id.myPage_dest, true);
+            navController.navigate(R.id.myPage_dest);
+        }else if (!navController.popBackStack()) {
             if (i == R.id.myPage_dest) {
                 new AlertDialog.Builder(this)
                         .setTitle(getApplication().getPackageName())
@@ -89,8 +91,6 @@ public class MainActivity extends AppCompatActivity {
                         .setPositiveButton("종료", (dialog, which) -> finish())
                         .setNegativeButton("아니요", null)
                         .show();
-            } else if (i == (id = R.id.routine_dest) || i == (id = R.id.setting_dest) || i == (id = R.id.training_dest)) {
-                navController.navigate(id);
             }
         }
 
