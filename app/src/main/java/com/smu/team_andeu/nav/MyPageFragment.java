@@ -13,11 +13,13 @@ import androidx.fragment.app.Fragment;
 
 import com.smu.team_andeu.R;
 
-public class MyPageFragment extends Fragment {
+public class MyPageFragment extends Fragment   {
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
+
         return inflater.inflate(R.layout.mypage_fragment, container, false);
     }
 
@@ -35,4 +37,5 @@ public class MyPageFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
     }
+
 }

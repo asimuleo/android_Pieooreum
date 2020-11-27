@@ -1,20 +1,17 @@
 package com.smu.team_andeu;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
 import com.smu.team_andeu.data.RoutineWithDexers;
 import com.smu.team_andeu.model.Exer;
 import com.smu.team_andeu.nav.DExerFragment;
@@ -23,10 +20,9 @@ import com.smu.team_andeu.nav.DRoutineFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    private AppBarConfiguration appBarConfiguration;
+    //private AppBarConfiguration appBarConfiguration;
     BottomNavigationView bottomNav;
     NavController navController;
-    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +33,14 @@ public class MainActivity extends AppCompatActivity {
                 this, R.id.nav_host_fragment
         );
 
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph())
-             //   .setOpenableLayout()
-                .build();
-
+        // 앱바가 필요하면 이걸 쓰면 된다.
+//        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph())
+//             //   .setOpenableLayout()
+//                .build();
 //        NavigationUI.setupWithNavController(
 //                toolbar, navController, appBarConfiguration
 //        );
 //        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        bottomNav = findViewById(R.id.bottom_nav);
-        NavigationUI.setupWithNavController(bottomNav,navController);
 
 //        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
 //            if(destination.getId() == R.id.home_dest){
@@ -54,10 +48,14 @@ public class MainActivity extends AppCompatActivity {
 //                bottomNav.setVisibility(View.VISIBLE);
 //            }
 //        });
+
+        bottomNav = findViewById(R.id.bottom_nav);
+        NavigationUI.setupWithNavController(bottomNav, navController);
+
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -79,4 +77,22 @@ public class MainActivity extends AppCompatActivity {
         navController.navigate(R.id.action_routine_dest_to_detail_routine_dest, bundle);
     }
 
+    @Override
+    public void onBackPressed() {
+        int i = navController.getCurrentDestination().getId();
+        if (!navController.popBackStack()) {
+            int id;
+            if (i == R.id.myPage_dest) {
+                new AlertDialog.Builder(this)
+                        .setTitle(getApplication().getPackageName())
+                        .setMessage("Phomer를 종료하시겠습니까?")
+                        .setPositiveButton("종료", (dialog, which) -> finish())
+                        .setNegativeButton("아니요", null)
+                        .show();
+            } else if (i == (id = R.id.routine_dest) || i == (id = R.id.setting_dest) || i == (id = R.id.training_dest)) {
+                navController.navigate(id);
+            }
+        }
+
+    }
 }
