@@ -31,4 +31,5 @@
     <string name="start">Start</string>
     <string name="clear">Clear</string>
     <string name="add">Add</string>
+    <string name="cal_button">calculate</string>
 </resources>

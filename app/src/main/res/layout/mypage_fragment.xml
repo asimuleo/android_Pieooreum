@@ -21,7 +21,6 @@
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimary">
 
-
                 <ImageView
                     android:id="@+id/box1"
                     android:layout_width="wrap_content"
@@ -33,51 +32,68 @@
                     app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
                     app:srcCompat="@drawable/bmi4" />
 
-                <RelativeLayout
-                    android:layout_width="348dp"
-                    android:layout_height="154dp"
-                    android:layout_marginTop="46dp"
-                    android:layout_marginBottom="61dp"
-                    android:paddingLeft="@dimen/margin_default"
-                    android:paddingTop="@dimen/margin_default"
-                    android:paddingRight="@dimen/margin_default"
-                    android:paddingBottom="@dimen/margin_default"
+                <AutoCompleteTextView
+                    android:id="@+id/txt_height"
+                    android:layout_width="167dp"
+                    android:layout_height="42dp"
+                    android:digits="0123456789.,"
+                    android:ems="10"
+                    android:hint="height"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/box1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.147"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/box1"
+                    app:layout_constraintVertical_bias="0.36" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/txt_weight"
+                    android:layout_width="166dp"
+                    android:layout_height="42dp"
+                    android:layout_marginBottom="109dp"
+                    android:ems="10"
+                    android:hint="weight"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/box1"
+                    app:layout_constraintEnd_toEndOf="@+id/txt_height"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/txt_height"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_height"
+                    app:layout_constraintVertical_bias="0.094" />
+
+                <TextView
+                    android:id="@+id/txt_result_bmi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="52dp"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/box1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.085"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_weight"
+                    app:layout_constraintVertical_bias="0.95"
+                    tools:text="BMI: 20" />
+
+                <Button
+                    android:id="@+id/calc_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="5dp"
+                    android:text="@string/cal_button"
                     app:layout_constraintBottom_toBottomOf="@+id/box1"
                     app:layout_constraintEnd_toEndOf="@+id/box1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/box1">
-
-                    <TextView
-                        android:id="@+id/textView1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0" />
-
-                    <EditText
-                        android:id="@+id/editText1"
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="36dp"
-                        android:layout_toEndOf="@+id/textView1"
-                        android:hint="Height"
-                        android:textColor="@color/colorPrimaryDark" />
-
-                    <EditText
-                        android:id="@+id/editText2"
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="50dp"
-                        android:layout_toEndOf="@+id/editText1"
-                        android:hint="Weight" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/editText1"
-                        android:layout_marginTop="37dp"
-                        android:onClick="onBtnResult"
-                        android:text="Result" />
-                </RelativeLayout>
+                    app:layout_constraintHorizontal_bias="0.337"
+                    app:layout_constraintStart_toEndOf="@+id/txt_height"
+                    app:layout_constraintTop_toTopOf="@+id/box1"
+                    app:layout_constraintVertical_bias="0.37" />
 
                 <EditText
                     android:id="@+id/editTextTextPersonName2"
