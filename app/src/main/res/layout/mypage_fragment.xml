@@ -28,22 +28,56 @@
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
-                    app:srcCompat="@drawable/box44" />
+                    app:srcCompat="@drawable/bmi4" />
 
-                <EditText
-                    android:id="@+id/editText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
+                <RelativeLayout
+                    android:layout_width="348dp"
+                    android:layout_height="154dp"
+                    android:layout_marginTop="46dp"
+                    android:layout_marginBottom="61dp"
+                    android:paddingLeft="@dimen/margin_default"
+                    android:paddingTop="@dimen/margin_default"
+                    android:paddingRight="@dimen/margin_default"
+                    android:paddingBottom="@dimen/margin_default"
                     app:layout_constraintBottom_toBottomOf="@+id/box1"
-                    app:layout_constraintHorizontal_bias="0.184"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/box1"
-                    app:layout_constraintVertical_bias="0.291" />
+                    app:layout_constraintEnd_toEndOf="@+id/box1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/box1">
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0" />
+
+                    <EditText
+                        android:id="@+id/editText1"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="36dp"
+                        android:layout_toEndOf="@+id/textView1"
+                        android:hint="Height"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <EditText
+                        android:id="@+id/editText2"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_toEndOf="@+id/editText1"
+                        android:hint="Weight" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/editText1"
+                        android:layout_marginTop="37dp"
+                        android:onClick="onBtnResult"
+                        android:text="Result" />
+                </RelativeLayout>
 
                 <EditText
                     android:id="@+id/editTextTextPersonName2"
