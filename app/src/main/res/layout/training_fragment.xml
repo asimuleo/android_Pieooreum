@@ -1,128 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/training"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/title_training"
-        android:textAlignment="center"
-        style="@style/TextAppearance.Phome.Title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_spinner1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/basic"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner1"
-        app:layout_constraintEnd_toStartOf="@+id/spinner1"
-        app:layout_constraintTop_toTopOf="@+id/spinner1"
-        android:layout_marginEnd="@dimen/margin_default"/>
+        <TextView
+            android:id="@+id/training"
+            style="@style/TextAppearance.Phome.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/title_training"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/text_spinner2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/favorites"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner2"
-        app:layout_constraintEnd_toStartOf="@+id/spinner2"
-        app:layout_constraintTop_toTopOf="@+id/spinner2"
-        android:layout_marginEnd="@dimen/margin_default"/>
+        <TextView
+            android:id="@+id/text_spinner1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:text="@string/basic"
+            app:layout_constraintBottom_toBottomOf="@+id/spinner1"
+            app:layout_constraintEnd_toStartOf="@+id/spinner1"
+            app:layout_constraintTop_toTopOf="@+id/spinner1" />
 
-    <TextView
-        android:id="@+id/text_spinner3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/phomer"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner3"
-        app:layout_constraintEnd_toStartOf="@+id/spinner3"
-        app:layout_constraintTop_toTopOf="@+id/spinner3"
-        android:layout_marginEnd="@dimen/margin_default"/>
+        <TextView
+            android:id="@+id/text_spinner2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:text="@string/favorites"
+            app:layout_constraintBottom_toBottomOf="@+id/spinner2"
+            app:layout_constraintEnd_toStartOf="@+id/spinner2"
+            app:layout_constraintTop_toTopOf="@+id/spinner2" />
 
-    <Spinner
+        <TextView
+            android:id="@+id/text_spinner3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:text="@string/phomer"
+            app:layout_constraintBottom_toBottomOf="@+id/spinner3"
+            app:layout_constraintEnd_toStartOf="@+id/spinner3"
+            app:layout_constraintTop_toTopOf="@+id/spinner3" />
 
-        android:id="@+id/spinner1"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/training" />
+        <Spinner
 
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner1" />
+            android:id="@+id/spinner1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/training" />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner1" />
 
 
-    <Spinner
-        android:id="@+id/spinner3"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+        <Spinner
+            android:id="@+id/spinner3"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner2" />
 
 
     <TextView
         android:id="@+id/textView2"
+        style="@style/TextAppearance.Phome.Title2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/routine_list"
         android:layout_margin="@dimen/margin_default"
-        style="@style/TextAppearance.Phome.Title2"
-        app:layout_constraintBottom_toTopOf="@id/horizontal_scroll"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        android:layout_marginTop="128dp"
+        android:text="@string/routine_list"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/clear_button"
+        app:layout_constraintTop_toBottomOf="@+id/spinner3"
+        app:layout_constraintVertical_bias="0.13999999" />
 
     <ImageButton
-        android:src="@drawable/ic_clear_24"
         android:id="@+id/clear_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="@dimen/margin_default2"
+        android:contentDescription="@string/clear"
+        android:src="@drawable/ic_clear_24"
         android:text="@string/start"
-        app:layout_constraintBottom_toTopOf="@id/horizontal_scroll"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_scroll"
         app:layout_constraintEnd_toStartOf="@id/start_button"
-        android:contentDescription="@string/clear" />
+        app:layout_constraintTop_toTopOf="@id/textView2" />
 
     <ImageButton
-        android:src="@drawable/ic_done_24"
         android:id="@+id/start_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="@dimen/margin_default2"
+        android:contentDescription="@string/start"
+        android:src="@drawable/ic_done_24"
         android:text="@string/start"
-        app:layout_constraintBottom_toTopOf="@id/horizontal_scroll"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_scroll"
         app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="@string/start" />
+        app:layout_constraintTop_toTopOf="@id/textView2" />
 
     <HorizontalScrollView
-        android:background="@drawable/border"
         android:id="@+id/horizontal_scroll"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="@dimen/margin_default"
+        android:background="@drawable/border"
         android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        >
+        app:layout_constraintTop_toBottomOf="@id/textView2">
 
         <LinearLayout
             android:id="@+id/routine_linear"
@@ -134,38 +137,38 @@
         </LinearLayout>
     </HorizontalScrollView>
 
-    <ImageButton
-        android:layout_marginStart="@dimen/margin_default"
-        android:src="@drawable/ic_add_24"
-        android:id="@+id/plus_spinner1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner1"
-        app:layout_constraintStart_toEndOf="@+id/spinner1"
-        app:layout_constraintTop_toTopOf="@+id/spinner1"
-        android:contentDescription="@string/add" />
+        <ImageButton
+            android:id="@+id/plus_spinner1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_default"
+            android:contentDescription="@string/add"
+            android:src="@drawable/ic_add_24"
+            app:layout_constraintBottom_toBottomOf="@+id/spinner1"
+            app:layout_constraintStart_toEndOf="@+id/spinner1"
+            app:layout_constraintTop_toTopOf="@+id/spinner1" />
 
-    <ImageButton
-        android:layout_marginStart="@dimen/margin_default"
-        android:src="@drawable/ic_add_24"
-        android:contentDescription="@string/add"
-        android:id="@+id/plus_spinner2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner2"
-        app:layout_constraintStart_toEndOf="@+id/spinner2"
-        app:layout_constraintTop_toTopOf="@+id/spinner2" />
+        <ImageButton
+            android:id="@+id/plus_spinner2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_default"
+            android:contentDescription="@string/add"
+            android:src="@drawable/ic_add_24"
+            app:layout_constraintBottom_toBottomOf="@+id/spinner2"
+            app:layout_constraintStart_toEndOf="@+id/spinner2"
+            app:layout_constraintTop_toTopOf="@+id/spinner2" />
 
-    <ImageButton
-        android:layout_marginStart="@dimen/margin_default"
-        android:src="@drawable/ic_add_24"
-        android:contentDescription="@string/add"
-        android:id="@+id/plus_spinner3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner3"
-        app:layout_constraintStart_toEndOf="@+id/spinner3"
-        app:layout_constraintTop_toTopOf="@+id/spinner3" />
+        <ImageButton
+            android:id="@+id/plus_spinner3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_default"
+            android:contentDescription="@string/add"
+            android:src="@drawable/ic_add_24"
+            app:layout_constraintBottom_toBottomOf="@+id/spinner3"
+            app:layout_constraintStart_toEndOf="@+id/spinner3"
+            app:layout_constraintTop_toTopOf="@+id/spinner3" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>

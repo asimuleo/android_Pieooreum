@@ -80,19 +80,23 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         int i = navController.getCurrentDestination().getId();
-        if (i ==  R.id.routine_dest || i == R.id.setting_dest || i == R.id.training_dest) {
+        if (i == R.id.routine_dest || i == R.id.setting_dest || i == R.id.training_dest) {
             navController.popBackStack(R.id.myPage_dest, true);
             navController.navigate(R.id.myPage_dest);
-        }else if (!navController.popBackStack()) {
-            if (i == R.id.myPage_dest) {
+        } else if (i == R.id.myPage_dest) {
+            new AlertDialog.Builder(this)
+                    .setTitle(getApplication().getPackageName())
+                    .setMessage("Phomer를 종료하시겠습니까?")
+                    .setPositiveButton("종료", (dialog, which) -> finish())
+                    .setNegativeButton("아니요", ((dialog, which) -> navController.popBackStack(R.id.myPage_dest, true)))
+                    .show();
+        } else if (!navController.popBackStack()) {
                 new AlertDialog.Builder(this)
                         .setTitle(getApplication().getPackageName())
                         .setMessage("Phomer를 종료하시겠습니까?")
                         .setPositiveButton("종료", (dialog, which) -> finish())
                         .setNegativeButton("아니요", null)
                         .show();
-            }
         }
-
     }
 }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -10,71 +9,80 @@
             type="boolean" />
     </data>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <com.google.android.material.textview.MaterialTextView
-            style="@style/TextAppearance.Phome.Title"
+        android:layout_height="match_parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_routine"
-            android:gravity="center"/>
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:stretchColumns="0,1,2,3">
-            <TableRow
-                >
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.Phome.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/title_routine" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:stretchColumns="0,1,2,3">
+
                 <com.google.android.material.button.MaterialButton
-                    style="@style/Widget.Phome.Button"
                     android:id="@+id/button_all"
+                    style="@style/Widget.Phome.Button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@string/All"
 
-                    android:text="@string/All"/>
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <com.google.android.material.button.MaterialButton
-                    style="@style/Widget.Phome.Button"
                     android:id="@+id/button_favorites"
+                    style="@style/Widget.Phome.Button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:text="@string/favorites"/>
+                    android:text="@string/favorites"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <com.google.android.material.button.MaterialButton
-                    style="@style/Widget.Phome.Button"
                     android:id="@+id/button_basic"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:text="@string/basic"/>
-                <com.google.android.material.button.MaterialButton
                     style="@style/Widget.Phome.Button"
-                    android:id="@+id/button_defined"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:text="@string/phomer"/>
-            </TableRow>
-        </TableLayout>
+                    android:text="@string/basic"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/loading_text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="@string/loading_routines"
-            android:textAlignment="center"
-            app:visibleGone="@{isLoading}" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_defined"
+                    style="@style/Widget.Phome.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phomer"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/routines_list"
-            android:contentDescription="@string/routines_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:visibleGone="@{!isLoading}"/>
+            </TableLayout>
 
-    </LinearLayout>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/loading_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/loading_routines"
+                android:textAlignment="center"
+                app:visibleGone="@{isLoading}" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/routines_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/routines_list"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:visibleGone="@{!isLoading}" />
+
+        </LinearLayout>
+    </ScrollView>
 </layout>
