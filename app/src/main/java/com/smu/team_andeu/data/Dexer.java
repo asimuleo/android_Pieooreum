@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "dexer_table")
 public class Dexer implements com.smu.team_andeu.model.Dexer {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int dexer_id;
     // 내가 속한 Exer
     private int exerOwnerId;

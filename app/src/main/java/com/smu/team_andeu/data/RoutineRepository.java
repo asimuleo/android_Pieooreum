@@ -5,8 +5,6 @@ import android.database.Cursor;
 
 import androidx.lifecycle.LiveData;
 
-import java.util.List;
-
 public class RoutineRepository {
 
     private static RoutineRepository sInstance;
@@ -33,5 +31,7 @@ public class RoutineRepository {
 
     public Cursor getRoutineName(int categoryId){ return mRoutineDao.loadRawRoutineByCategory(categoryId);}
 
+    public LiveData<Routine> getRoutine(int rId){return mRoutineDao.getRoutine(rId);}
 
+    public void updateRoutineMaxorder(RoutineOrder routineOrder){mRoutineDao.updateRutineMaxOrder(routineOrder);}
 }

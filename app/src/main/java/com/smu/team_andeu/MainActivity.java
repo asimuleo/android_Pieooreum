@@ -16,6 +16,8 @@ import com.smu.team_andeu.data.Routine;
 import com.smu.team_andeu.model.Dexer;
 import com.smu.team_andeu.data.RoutineWithDexers;
 import com.smu.team_andeu.model.Exer;
+import com.smu.team_andeu.nav.AddDexerFragment;
+import com.smu.team_andeu.nav.AddExerFragment;
 import com.smu.team_andeu.nav.DExerFragment;
 import com.smu.team_andeu.nav.DRoutineFragment;
 
@@ -67,17 +69,31 @@ public class MainActivity extends AppCompatActivity {
                 || super.onOptionsItemSelected(item);
     }
 
-    // 루틴 아이디를 전달함으로서 새로운 운동을 루틴에 추가할시에 RoutineId를 알 수 있도록 한다.
+    // 루틴에 운동 흐름1
     public void showAddExer(Routine routine){
-        Bundle bundle = DRoutineFragment.getBundleWithId(routine.getRoutineId());
+        Bundle bundle = AddExerFragment.getBundleWithId(routine.getRoutineId());
         navController.navigate(R.id.action_detail_routine_dest_to_add_exer_dest, bundle);
     }
 
-    // for Exer List
-    public void showExer(Exer exer) {
-        Bundle bundle = DExerFragment.getBundleWithId(exer.getExerId());
+    // 루틴에 운동 흐름2
+    public void showExer(Exer exer, int routineId) {
+        Bundle bundle = DExerFragment.getBundleWithId(exer.getExerId(), routineId);
         navController.navigate(R.id.add_exer_dest_to_detail_exer_dest, bundle);
     }
+
+    // 루틴에 운동 흐름3
+    public void showAddDetailDexer(int routineId, int exerId){
+        Bundle bundle = AddDexerFragment.getBundleWithId(routineId, exerId);
+        navController.navigate(R.id.action_detail_exer_dest_to_add_dexer_dest, bundle);
+    }
+
+    // 루틴에 운동 흐름4
+    public void showAddResult(int routineId){
+        Bundle bundle = DRoutineFragment.getBundleWithId(routineId);
+        navController.navigate(R.id.action_add_dexer_dest_to_detail_routine_dest, bundle);
+    }
+
+
 
     public void showExerWithDexer(Dexer dexer) {
         Bundle bundle = DExerFragment.getBundleWithDexerId(dexer.getExerId());

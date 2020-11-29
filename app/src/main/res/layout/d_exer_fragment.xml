@@ -11,6 +11,10 @@
             type="boolean" />
 
         <variable
+            name="isFromAdd"
+            type="boolean" />
+
+        <variable
             name="exerViewModel"
             type="com.smu.team_andeu.viewmodels.ExerViewModel" />
     </data>
@@ -49,7 +53,13 @@
                     app:visibleGone="@{!isLoading}" />
             </FrameLayout>
 
-
+            <Button
+                android:id="@+id/add_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add"
+                android:layout_gravity="center"
+                app:visibleGone="@{isFromAdd}"/>
         </LinearLayout>
     </ScrollView>
 </layout>

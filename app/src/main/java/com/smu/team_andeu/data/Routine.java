@@ -1,6 +1,7 @@
 package com.smu.team_andeu.data;
 
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -15,8 +16,10 @@ public class Routine  {
     private String r_summary;
     private int category;
     private int count;
+    @ColumnInfo(defaultValue = "0")
+    private int maxOrder;
 
-    public Routine(int routineId, String r_name, double r_totalCal, int r_totalTime, String r_summary, int category, int count) {
+    public Routine(int routineId, String r_name, double r_totalCal, int r_totalTime, String r_summary, int category, int count, int maxOrder) {
         this.routineId = routineId;
         this.r_name = r_name;
         this.r_totalCal = r_totalCal;
@@ -24,7 +27,9 @@ public class Routine  {
         this.r_summary = r_summary;
         this.category = category;
         this.count = count;
+        this.maxOrder = maxOrder;
     }
+
 
 
     public int getRoutineId() {
@@ -81,6 +86,14 @@ public class Routine  {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public int getMaxOrder() {
+        return maxOrder;
+    }
+
+    public void setMaxOrder(int maxOrder) {
+        this.maxOrder = maxOrder;
     }
 }
 

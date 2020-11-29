@@ -21,4 +21,6 @@ interface RoutineDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(routines: List<Routine>)
 
+    @Update(entity = Routine::class)
+    fun updateRutineMaxOrder(routine:RoutineOrder)
 }

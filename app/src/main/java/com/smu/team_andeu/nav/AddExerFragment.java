@@ -27,15 +27,17 @@ import java.util.List;
 
 public class AddExerFragment extends Fragment {
     public static final String TAG = "AddExerFragment";
+    private static final String KEY_ROUTINE_ID = "routine_id";
 
     private ExerListAdapter mExerListAdapter;
 
     AddExerFragmentBinding mBinding;
 
+
     // 콜백 생성
     private final ExerClickCallback mExerClickCallback = exer -> {
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-            ((MainActivity) requireActivity()).showExer(exer);
+            ((MainActivity) requireActivity()).showExer(exer, requireArguments().getInt(KEY_ROUTINE_ID));
         }
     };
 
@@ -85,6 +87,12 @@ public class AddExerFragment extends Fragment {
         mBinding = null;
         mExerListAdapter = null;
         super.onDestroyView();
+    }
+
+    public static Bundle getBundleWithId(int routineId) {
+        Bundle args = new Bundle();
+        args.putInt(KEY_ROUTINE_ID, routineId);
+        return args;
     }
 
 }

@@ -22,9 +22,9 @@
 
     <style name="Widget.Phome.Button" parent="Widget.MaterialComponents.Button">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
-        <item name="backgroundTint">@color/white</item>
+        <item name="backgroundTint">@color/secondary</item>
         <item name="android:stateListAnimator" tools:ignore="NewApi">
-            @null
+            @animator/pho_next_button_state_list_anim
         </item>
         <item name="android:layout_margin">@dimen/routine_button_default_margin</item>
     </style>

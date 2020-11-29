@@ -36,10 +36,15 @@
     <string name="bmi_box">BMI_BOX</string>
     <string name="hint_height">height</string>
     <string name="hint_weight">weight</string>
-    <string name="nickname">NickName</string>
     <string name="lunge_image">Lunge_image</string>
     <string name="nickname_image">NickName_image</string>
     <string name="my_page">MY PAGE</string>
     <string name="calendar">Calendar</string>
     <string name="dexer_list">Dexer List</string>
+    <string name="setting_details">Setting details</string>
+    <string name="nickname">Nick Name</string>
+    <string name="pho_button_next">Add</string>
+    <string name="pho_button_cancel">Cancel</string>
+    <string name="pho_error_name">Nick Name must contain at least 8 characters.</string>
+    <string name="pho_error_int">This must be greater than 1.</string>
 </resources>
