@@ -40,4 +40,6 @@
     <string name="nickname_image">NickName_image</string>
     <string name="my_page">MY PAGE</string>
     <string name="calendar">Calendar</string>
+    <string name="cancel_button_txt">포기하기/중단하기</string>
+    <string name="pose_help_txt">자세 흐트러지지 않게</string>
 </resources>
