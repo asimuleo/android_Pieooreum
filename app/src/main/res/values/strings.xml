@@ -59,4 +59,5 @@
     <string name="notification_channel_name">Mascot Notification</string>
     <string name="notification_channel_description">Notification from Mascot</string>
     <string name="loading_dexer">Loading dexer...</string>
+    <string name="continue"><![CDATA[이어서하기>]]></string>
 </resources>
