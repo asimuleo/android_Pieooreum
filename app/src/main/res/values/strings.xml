@@ -46,4 +46,16 @@
     <string name="dd">00:00</string>
     <string name="StringValue">이미지 불러오기 실패</string>
     <string name="textview_detail">TextView</string>
+    <string name="loading_dexer">Loading dexer...</string>
+    <!--    //alarm-->
+    <string name="app_name">Notify Me!</string>
+    <string name="notification_title">You\'ve been notified!</string>
+    <string name="notification_text">This is your notification text.</string>
+    <string name="update">Update Notification</string>
+    <string name="notify_me">Notify Me!</string>
+    <string name="update_me">Update Me!</string>
+    <string name="cancel_me">Cancel Me!</string>
+    <string name="notification_updated">Notification Updated!</string>
+    <string name="notification_channel_name">Mascot Notification</string>
+    <string name="notification_channel_description">Notification from Mascot</string>
 </resources>

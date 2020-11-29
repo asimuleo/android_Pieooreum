@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+
+    <ImageView
+        android:id="@+id/winner_man"
+        android:layout_width="408dp"
+        android:layout_height="773dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/exer_end" />
+
+    <ImageView
+        android:id="@+id/congratulate_txt"
+        android:layout_width="328dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="36dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/winner_man"
+        app:srcCompat="@drawable/congratulate" />
+
+    <TextView
+        android:id="@+id/exer_end_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginBottom="84dp"
+        android:fontFamily="@font/gmarketsansttfmedium"
+        android:text="축하합니다! \n루틴을 모두 수행하셨어요!"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="22dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/kcalory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/gmarketsansttfmedium"
+        android:text="소모한 칼로리 : 235 kcal"
+        android:textSize="18dp"
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toEndOf="@+id/exer_end_txt"
+        app:layout_constraintStart_toStartOf="@+id/exer_end_txt"
+        app:layout_constraintTop_toBottomOf="@+id/exer_end_txt" />
+
+    <Button
+        android:id="@+id/go_phome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="4dp"
+        android:textColor="#ffffff"
+        android:text="phome"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/go_mypage" />
+
+    <Button
+        android:id="@+id/go_mypage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="4dp"
+        android:textColor="#ffffff"
+        android:text="My page"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
