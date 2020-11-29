@@ -36,7 +36,6 @@
         android:textStyle="bold"
         android:textSize="60sp"
         android:gravity="center"
-        android:text="@string/dd"
         app:layout_constraintBottom_toTopOf="@+id/image_exer_gif"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"

@@ -93,6 +93,11 @@ public class MainActivity extends AppCompatActivity {
         navController.navigate(R.id.action_add_dexer_dest_to_detail_routine_dest, bundle);
     }
 
+    // 운동 시작 흐름 1
+    public void showStart(){
+        Bundle bundle = new Bundle();
+        navController.navigate(R.id.action_training_dest_to_startActivity, bundle);
+    }
 
 
     public void showExerWithDexer(Dexer dexer) {

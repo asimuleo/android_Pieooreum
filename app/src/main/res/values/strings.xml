@@ -43,10 +43,8 @@
     <string name="dexer_list">Dexer List</string>
     <string name="cancel_button_txt">포기하기/중단하기</string>
     <string name="pose_help_txt">자세 흐트러지지 않게</string>
-    <string name="dd">00:00</string>
     <string name="StringValue">이미지 불러오기 실패</string>
     <string name="textview_detail">TextView</string>
-    <string name="loading_dexer">Loading dexer...</string>
     <!--    //alarm-->
     <string name="app_name">Notify Me!</string>
     <string name="notification_title">You\'ve been notified!</string>
@@ -58,5 +56,10 @@
     <string name="notification_updated">Notification Updated!</string>
     <string name="notification_channel_name">Mascot Notification</string>
     <string name="notification_channel_description">Notification from Mascot</string>
-    <string name="loading_dexer">Loading dexer...</string>
+    <string name="loading_dexer">Loading dexer…</string>
+    <string name="setting_details">Setting details</string>
+    <string name="pho_button_next">Add</string>
+    <string name="pho_button_cancel">Cancel</string>
+    <string name="pho_error_name">Nick Name must contain at least 8 characters.</string>
+    <string name="pho_error_int">This must be greater than 1.</string>
 </resources>

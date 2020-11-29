@@ -16,8 +16,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.smu.team_andeu.MainActivity;
 import com.smu.team_andeu.R;
 import com.smu.team_andeu.viewmodels.TrainingListViewModel;
 
@@ -86,7 +88,9 @@ public class TrainingFragment extends Fragment {
         ImageButton start = view.findViewById(R.id.start_button);
         start.setOnClickListener(v -> {
             scrollView.removeCallbacks(r);
-            Toast.makeText(getContext(), "운동 시작을 구현하면 됩니다.", Toast.LENGTH_SHORT).show();
+            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                ((MainActivity) requireActivity()).showStart();
+            }
         });
 
 
