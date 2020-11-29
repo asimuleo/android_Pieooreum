@@ -15,7 +15,7 @@ import com.smu.team_andeu.R;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-public class ProgressFragment extends Activity {
+public class ProgressActivity extends Activity {
     TextView textView;
 
 
