@@ -1,11 +1,8 @@
 package com.smu.team_andeu.data;
 
-import android.database.Cursor;
 
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-import androidx.room.RewriteQueriesToDropUnusedColumns;
 
 
 @Entity(tableName = "routine")

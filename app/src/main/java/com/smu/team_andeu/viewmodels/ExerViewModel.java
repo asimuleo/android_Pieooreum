@@ -19,7 +19,6 @@ public class ExerViewModel extends AndroidViewModel {
     public ExerViewModel(@NonNull Application application, ExerciseRepository repository,
                          final int exerId) {
         super(application);
-
         mObservableExer = repository.getExerById(exerId);
         //TODO 운동의 상세설명 에 필요한 내용을 다른 repository로 부터 가져오면 된다.
     }
@@ -28,7 +27,7 @@ public class ExerViewModel extends AndroidViewModel {
         return mObservableExer;
     }
 
-    // 해당하는 exerId로 부터 만든다.
+    // 해당하는 exerId로 부터 ExerViewModel을 만든다.
     public static class Factory extends ViewModelProvider.NewInstanceFactory {
 
         @NonNull

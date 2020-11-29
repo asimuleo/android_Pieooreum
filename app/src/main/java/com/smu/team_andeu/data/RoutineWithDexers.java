@@ -1,7 +1,6 @@
 package com.smu.team_andeu.data;
 
 import androidx.room.Embedded;
-import androidx.room.Entity;
 import androidx.room.Relation;
 
 import java.util.List;

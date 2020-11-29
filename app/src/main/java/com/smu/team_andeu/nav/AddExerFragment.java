@@ -56,6 +56,8 @@ public class AddExerFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         final ExerListViewModel viewModel =
                 new ViewModelProvider(this).get(ExerListViewModel.class);
+        mBinding.setLifecycleOwner(getViewLifecycleOwner());
+
         mBinding.exerSearchButton.setOnClickListener(v -> {
             Editable query = mBinding.exerSearchBox.getText();
             viewModel.setQuery(query);

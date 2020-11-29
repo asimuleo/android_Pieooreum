@@ -11,69 +11,44 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <com.google.android.material.textview.MaterialTextView
-                style="@style/TextAppearance.Phome.Title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/title_routine" />
-
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:stretchColumns="0,1,2,3">
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_all"
-                    style="@style/Widget.Phome.Button"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/All"
-
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_favorites"
-                    style="@style/Widget.Phome.Button"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/favorites"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_basic"
-                    style="@style/Widget.Phome.Button"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/basic"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_defined"
-                    style="@style/Widget.Phome.Button"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/phomer"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </TableLayout>
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/loading_text"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="@string/loading_routines"
-                android:textAlignment="center"
-                app:visibleGone="@{isLoading}" />
+                >
+            <TextView
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.144"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.109"
+                android:id="@+id/myroutine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                android:fontFamily="@font/gmarketsansttfmedium"
+                android:text="Add\nExercise"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+                <com.google.android.material.tabs.TabLayout
+                    app:layout_constraintTop_toBottomOf="@id/myroutine"
+                    android:id="@+id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="1dp"
+                    app:tabMode="fixed"
+                    app:tabGravity="fill"
+                    app:tabTextColor="@color/colorPrimary"
+                    app:tabSelectedTextColor="@color/colorPrimaryDark" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/routines_list"
@@ -81,8 +56,20 @@
                 android:layout_height="match_parent"
                 android:contentDescription="@string/routines_list"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:visibleGone="@{!isLoading}" />
-
+                app:visibleGone="@{!isLoading}"
+                app:layout_constraintTop_toBottomOf="@id/tabs"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/loading_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/loading_routines"
+                android:textAlignment="center"
+                app:visibleGone="@{isLoading}" />
         </LinearLayout>
+
     </ScrollView>
 </layout>

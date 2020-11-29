@@ -3,6 +3,7 @@
     <string name="cd_exer_name">Name of the exercise</string>
     <string name="serach_product">serach product…</string>
     <string name="loading_exer">Loading exercises…</string>
+    <string name="loading_dexer">Loading dexers…</string>
     <string name="exers_list">exers list</string>
     <string name="loading_something">loading something…</string>
     <string name="something_list">something list</string>
@@ -40,4 +41,5 @@
     <string name="nickname_image">NickName_image</string>
     <string name="my_page">MY PAGE</string>
     <string name="calendar">Calendar</string>
+    <string name="dexer_list">Dexer List</string>
 </resources>

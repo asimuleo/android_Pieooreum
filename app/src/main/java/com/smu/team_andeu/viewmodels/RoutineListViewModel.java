@@ -29,7 +29,7 @@ public class RoutineListViewModel extends AndroidViewModel {
                 savedStateHandle.getLiveData("QUERY", null),
                 (Function<Integer, LiveData<List<RoutineWithDexers>>>) query -> {
                     // 카테고리가 설정되지 않았다면 다불러옴
-                    if (query == null || query == -1) {
+                    if (query == null || query == 0) {
                         return routineWithDexersRepository.getRoutines();
                     }
                     return routineWithDexersRepository.getRoutinesByCategory(query);

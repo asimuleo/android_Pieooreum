@@ -1,12 +1,52 @@
 [
   {
-    "dexer_id": "",
-    "exerOwnerId": "",
-    "d_routineId": "",
-    "d_nicname": "",
-    "d_count": "",
-    "d_time": "",
-    "d_calories": "",
-    "d_categories": ""
+    "dexer_id": "0",
+    "exerOwnerId": "0",
+    "d_routineId": "0",
+    "d_nicname": "테스트덱서1",
+    "d_count": "1",
+    "d_time": "1",
+    "d_calories": "10",
+    "d_categories": "0"
+  },
+  {
+    "dexer_id": "1",
+    "exerOwnerId": "1",
+    "d_routineId": "0",
+    "d_nicname": "테스트덱서2",
+    "d_count": "2",
+    "d_time": "2",
+    "d_calories": "10",
+    "d_categories": "1"
+  },
+  {
+    "dexer_id": "2",
+    "exerOwnerId": "2",
+    "d_routineId": "1",
+    "d_nicname": "테스트덱서3",
+    "d_count": "3",
+    "d_time": "3",
+    "d_calories": "10",
+    "d_categories": "2"
+  },
+  {
+    "dexer_id": "3",
+    "exerOwnerId": "3",
+    "d_routineId": "2",
+    "d_nicname": "테스트덱서4",
+    "d_count": "4",
+    "d_time": "4",
+    "d_calories": "10",
+    "d_categories": "3"
+  },
+  {
+    "dexer_id": "4",
+    "exerOwnerId": "4",
+    "d_routineId": "3",
+    "d_nicname": "테스트덱서5",
+    "d_count": "5",
+    "d_time": "5",
+    "d_calories": "10",
+    "d_categories": "4"
   }
 ]

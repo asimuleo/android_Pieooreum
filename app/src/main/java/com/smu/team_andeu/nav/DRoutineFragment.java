@@ -6,40 +6,97 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModelProvider;
 
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.smu.team_andeu.MainActivity;
 import com.smu.team_andeu.R;
+import com.smu.team_andeu.adapters.DexerListAdapter;
+import com.smu.team_andeu.callback.DexerClickCallback;
+
+import com.smu.team_andeu.data.RoutineWithDexers;
+import com.smu.team_andeu.databinding.DRoutineFragmentBinding;
+import com.smu.team_andeu.viewmodels.DexerListViewModel;
+
+
 
 public class DRoutineFragment extends Fragment {
     private static final String KEY_ROUTINE_ID = "routine_id";
 
+    DexerListAdapter dexerListAdapter;
+    DRoutineFragmentBinding mBinding;
+
+    FloatingActionButton floatingActionButton;
+
+    // 콜백 생성
+    private final DexerClickCallback mDexerClickCallback = dexer -> {
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+            ((MainActivity) requireActivity()).showExerWithDexer(dexer);
+        }
+    };
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        setHasOptionsMenu(true);
-        View view = inflater.inflate(R.layout.d_routine_fragment, container, false);
-        Button addButton = view.findViewById(R.id.add_exer_button);
-        addButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_detail_routine_dest_to_add_exer_dest));
-        return view;
+        mBinding = DataBindingUtil.inflate(inflater, R.layout.d_routine_fragment, container, false);
+        dexerListAdapter = new DexerListAdapter(mDexerClickCallback);
+        mBinding.routinesList.setAdapter(dexerListAdapter);
+        floatingActionButton = mBinding.addExerButton;
+
+        return mBinding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        DexerListViewModel.Factory factory = new DexerListViewModel.Factory(
+                requireActivity().getApplication(), requireArguments().getInt(KEY_ROUTINE_ID));
+
+        final DexerListViewModel viewModel = new ViewModelProvider(this, factory)
+                .get(DexerListViewModel.class);
+        mBinding.setLifecycleOwner(getViewLifecycleOwner());
+        mBinding.setDexerListViewModel(viewModel);
+
+        floatingActionButton.setOnClickListener(v -> {
+            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                ((MainActivity) requireActivity()).showAddExer(
+                        viewModel.getRoutineWithDexers().getValue().getRoutine());
+            }
+        });
+
+        subscribeToModel(viewModel.getRoutineWithDexers());
     }
 
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.main_menu, menu);
+    // FAB를 클릭 했을시 작동되는 콜백 메소드
+
+
+    private void subscribeToModel( LiveData<RoutineWithDexers> liveData) {
+        // Update the list when the data changes
+        liveData.observe(getViewLifecycleOwner(), myDexers -> {
+            if (myDexers != null) {
+                mBinding.setIsLoading(false);
+                dexerListAdapter.setDexerList(myDexers.getDexers());
+            } else {
+                mBinding.setIsLoading(true);
+            }
+            // espresso does not know how to wait for data binding's loop so we execute changes
+            // sync.
+            mBinding.executePendingBindings();
+        });
     }
 
     @Override
     public void onDestroyView() {
+        mBinding = null;
+        dexerListAdapter = null;
         super.onDestroyView();
     }
 

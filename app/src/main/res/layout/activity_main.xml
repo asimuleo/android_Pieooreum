@@ -32,6 +32,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/bottomnav_design"
+
         android:elevation="8dp"
         app:itemIconTint="@drawable/bottom_nav_color_selector"
         app:labelVisibilityMode="unlabeled"

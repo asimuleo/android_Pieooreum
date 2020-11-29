@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.smu.team_andeu.data.Routine;
+import com.smu.team_andeu.model.Dexer;
 import com.smu.team_andeu.data.RoutineWithDexers;
 import com.smu.team_andeu.model.Exer;
 import com.smu.team_andeu.nav.DExerFragment;
@@ -65,10 +67,21 @@ public class MainActivity extends AppCompatActivity {
                 || super.onOptionsItemSelected(item);
     }
 
+    // 루틴 아이디를 전달함으로서 새로운 운동을 루틴에 추가할시에 RoutineId를 알 수 있도록 한다.
+    public void showAddExer(Routine routine){
+        Bundle bundle = DRoutineFragment.getBundleWithId(routine.getRoutineId());
+        navController.navigate(R.id.action_detail_routine_dest_to_add_exer_dest, bundle);
+    }
+
     // for Exer List
     public void showExer(Exer exer) {
         Bundle bundle = DExerFragment.getBundleWithId(exer.getExerId());
-        navController.navigate(R.id.action_DRoutineFragment_to_DExerFragment, bundle);
+        navController.navigate(R.id.add_exer_dest_to_detail_exer_dest, bundle);
+    }
+
+    public void showExerWithDexer(Dexer dexer) {
+        Bundle bundle = DExerFragment.getBundleWithDexerId(dexer.getExerId());
+        navController.navigate(R.id.action_detail_routine_dest_to_detail_exer_dest, bundle);
     }
 
     // for Routine List
@@ -76,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle = DRoutineFragment.getBundleWithId(routineWithDexers.getRoutine().getRoutineId());
         navController.navigate(R.id.action_routine_dest_to_detail_routine_dest, bundle);
     }
+
 
     @Override
     public void onBackPressed() {
