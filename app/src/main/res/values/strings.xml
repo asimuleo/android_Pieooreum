@@ -43,4 +43,7 @@
     <string name="dexer_list">Dexer List</string>
     <string name="cancel_button_txt">포기하기/중단하기</string>
     <string name="pose_help_txt">자세 흐트러지지 않게</string>
+    <string name="dd">00:00</string>
+    <string name="StringValue">이미지 불러오기 실패</string>
+    <string name="textview_detail">TextView</string>
 </resources>
