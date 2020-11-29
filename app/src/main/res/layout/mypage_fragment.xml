@@ -1,179 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <ImageView
+                android:id="@+id/box1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/bmi_box"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+                app:srcCompat="@drawable/bmi4" />
+
+            <AutoCompleteTextView
+                android:id="@+id/txt_height"
+                android:layout_width="167dp"
+                android:layout_height="42dp"
+                android:digits="0123456789.,"
+                android:ems="10"
+                android:hint="@string/hint_height"
+                android:inputType="numberDecimal"
+                android:maxLines="1"
+                android:singleLine="true"
+                app:layout_constraintBottom_toBottomOf="@+id/box1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.147"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/box1"
+                app:layout_constraintVertical_bias="0.36" />
+
+            <AutoCompleteTextView
+                android:id="@+id/txt_weight"
+                android:layout_width="166dp"
+                android:layout_height="42dp"
+                android:layout_marginBottom="109dp"
+                android:ems="10"
+                android:hint="@string/hint_weight"
+                android:inputType="numberDecimal"
+                android:maxLines="1"
+                android:singleLine="true"
+                app:layout_constraintBottom_toBottomOf="@+id/box1"
+                app:layout_constraintEnd_toEndOf="@+id/txt_height"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/txt_height"
+                app:layout_constraintTop_toBottomOf="@+id/txt_height"
+                app:layout_constraintVertical_bias="0.094" />
+
+            <TextView
+                android:id="@+id/txt_result_bmi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="52dp"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/box1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.085"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_weight"
+                app:layout_constraintVertical_bias="0.95"
+                tools:text="BMI: 20" />
+
+            <Button
+                android:id="@+id/calc_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="5dp"
+                android:text="@string/cal_button"
+                app:layout_constraintBottom_toBottomOf="@+id/box1"
+                app:layout_constraintEnd_toEndOf="@+id/box1"
+                app:layout_constraintHorizontal_bias="0.337"
+                app:layout_constraintStart_toEndOf="@+id/txt_height"
+                app:layout_constraintTop_toTopOf="@+id/box1"
+                app:layout_constraintVertical_bias="0.37" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-10dp"
+                android:layout_marginEnd="70dp"
+                android:autofillHints="@string/nickname"
+                android:ems="10"
+                android:hint="@string/nickname"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="311dp"
+                android:layout_height="261dp"
+                android:layout_marginStart="50dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/lunge_image"
+                app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/sportwoman412" />
+
+            <ImageView
+                android:id="@+id/icon1"
+                android:layout_width="46dp"
+                android:layout_height="44dp"
+
+                android:contentDescription="@string/nickname_image"
+
+                android:elevation="20dp"
+                app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName2"
+                app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName2"
+                app:srcCompat="@drawable/ic_mypage_24" />
+
+            <TextView
+                android:id="@+id/mypage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                android:fontFamily="@font/gmarketsansttfmedium"
+                android:text="@string/my_page"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.144"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.109" />
+
+            <ImageView
+                android:id="@+id/secondbox"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorPrimary">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="33dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/calendar"
+                app:layout_constraintTop_toBottomOf="@+id/box1"
+                app:srcCompat="@drawable/box3" />
 
-                <ImageView
-                    android:id="@+id/box1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
-                    app:srcCompat="@drawable/bmi4" />
+            <CalendarView
+                android:id="@+id/calendarView"
+                style="@android:style/Widget.DeviceDefault.CalendarView"
+                android:layout_width="337dp"
+                android:layout_height="361dp"
+                android:layout_marginTop="20dp"
+                android:focusedMonthDateColor="@color/secondary"
+                android:weekNumberColor="@color/secondary"
+                app:layout_constraintBottom_toBottomOf="@+id/secondbox"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.494"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/secondbox"
+                app:layout_constraintVertical_bias="0.583" />
 
-                <AutoCompleteTextView
-                    android:id="@+id/txt_height"
-                    android:layout_width="167dp"
-                    android:layout_height="42dp"
-                    android:digits="0123456789.,"
-                    android:ems="10"
-                    android:hint="height"
-                    android:inputType="numberDecimal"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    app:layout_constraintBottom_toBottomOf="@+id/box1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.147"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/box1"
-                    app:layout_constraintVertical_bias="0.36" />
-
-                <AutoCompleteTextView
-                    android:id="@+id/txt_weight"
-                    android:layout_width="166dp"
-                    android:layout_height="42dp"
-                    android:layout_marginBottom="109dp"
-                    android:ems="10"
-                    android:hint="weight"
-                    android:inputType="numberDecimal"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    app:layout_constraintBottom_toBottomOf="@+id/box1"
-                    app:layout_constraintEnd_toEndOf="@+id/txt_height"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/txt_height"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_height"
-                    app:layout_constraintVertical_bias="0.094" />
-
-                <TextView
-                    android:id="@+id/txt_result_bmi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="52dp"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/box1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.085"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_weight"
-                    app:layout_constraintVertical_bias="0.95"
-                    tools:text="BMI: 20" />
-
-                <Button
-                    android:id="@+id/calc_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:elevation="5dp"
-                    android:text="@string/cal_button"
-                    app:layout_constraintBottom_toBottomOf="@+id/box1"
-                    app:layout_constraintEnd_toEndOf="@+id/box1"
-                    app:layout_constraintHorizontal_bias="0.337"
-                    app:layout_constraintStart_toEndOf="@+id/txt_height"
-                    app:layout_constraintTop_toTopOf="@+id/box1"
-                    app:layout_constraintVertical_bias="0.37" />
-
-                <EditText
-                    android:id="@+id/editTextTextPersonName2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="-10dp"
-                    android:layout_marginEnd="70dp"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="닉네임"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="311dp"
-                    android:layout_height="261dp"
-                    android:layout_marginLeft="50dp"
-                    android:adjustViewBounds="true"
-                    app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/sportwoman412" />
-
-                <ImageView
-                    android:id="@+id/icon1"
-                    android:layout_width="46dp"
-                    android:layout_height="44dp"
-
-                    android:elevation="20dp"
-
-                    app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName2"
-                    app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName2"
-                    app:srcCompat="@drawable/ic_mypage_24" />
-
-                <TextView
-                    android:id="@+id/mypage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:elevation="10dp"
-                    android:fontFamily="@font/gmarketsansttfmedium"
-                    android:text="MY PAGE"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textFontWeight="900"
-                    android:textSize="30dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.144"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.109" />
-
-                <ImageView
-                    android:id="@+id/secondbox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="33dp"
-                    android:adjustViewBounds="true"
-                    app:layout_constraintTop_toBottomOf="@+id/box1"
-                    app:srcCompat="@drawable/box3" />
-
-                <CalendarView
-                    android:id="@+id/calendarView"
-                    style="@android:style/Widget.DeviceDefault.CalendarView"
-                    android:layout_width="337dp"
-                    android:layout_height="361dp"
-                    android:focusedMonthDateColor="@color/secondary"
-                    android:weekNumberColor="@color/secondary"
-                    android:layout_marginTop="20dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/secondbox"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.494"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/secondbox"
-                    app:layout_constraintVertical_bias="0.583" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
-    </ScrollView>
-
-</RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</ScrollView>
