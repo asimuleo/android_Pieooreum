@@ -4,7 +4,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "dexer_table")
-public class Dexer {
+public class Dexer implements com.smu.team_andeu.model.Dexer {
     @PrimaryKey
     private int dexer_id;
     // 내가 속한 Exer
@@ -91,5 +91,40 @@ public class Dexer {
 
     public void setD_categories(int d_categories) {
         this.d_categories = d_categories;
+    }
+
+    @Override
+    public int getDexerId() {
+        return getDexer_id();
+    }
+
+    @Override
+    public String getName() {
+        return getD_nicname();
+    }
+
+    @Override
+    public double getCalorie() {
+        return getD_calories();
+    }
+
+    @Override
+    public int getCount() {
+        return getD_count();
+    }
+
+    @Override
+    public int getTime() {
+        return getD_time();
+    }
+
+    @Override
+    public int getCategories() {
+        return getD_categories();
+    }
+
+    @Override
+    public int getExerId() {
+        return getExerOwnerId();
     }
 }

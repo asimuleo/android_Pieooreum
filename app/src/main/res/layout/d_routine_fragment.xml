@@ -1,23 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="isLoading"
+            type="boolean" />
+
+        <variable
+            name="dexerListViewModel"
+            type="com.smu.team_andeu.viewmodels.DexerListViewModel" />
+    </data>
+<ScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
+
+        <TextView
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.144"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.109"
+            android:id="@+id/routine_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            android:fontFamily="@font/gmarketsansttfmedium"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:text="@{dexerListViewModel.routineWithDexers.routine.r_name}"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add_exer_button"
-            style="@style/Widget.Phome.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="Add"
+            android:src="@drawable/ic_add_24"
+            app:borderWidth="0dp"
+            app:fabSize="normal"
+            app:visibleGone="@{!isLoading}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintTop_toBottomOf="@id/routines_list"
+            android:backgroundTint="@color/colorAccent"
+            android:contentDescription="@string/add" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/routines_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/dexer_list"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:visibleGone="@{!isLoading}"
+            app:layout_constraintTop_toBottomOf="@id/routine_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/loading_dexer"
+            android:textAlignment="center"
+            app:visibleGone="@{isLoading}"
+            app:layout_constraintTop_toBottomOf="@id/routine_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
+</layout>

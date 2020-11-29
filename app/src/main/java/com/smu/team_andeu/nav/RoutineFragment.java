@@ -14,6 +14,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.material.tabs.TabLayout;
 import com.smu.team_andeu.MainActivity;
 import com.smu.team_andeu.R;
 import com.smu.team_andeu.adapters.RoutineListAdapter;
@@ -29,6 +30,8 @@ public class RoutineFragment extends Fragment {
     private RoutineListAdapter mRoutineListAdapter;
 
     RoutineFragmentBinding mBinding;
+
+    TabLayout tabs;
 
     // 콜백 생성
     private final RoutineClickCallback mRoutineClickCallback = routineWithDexers -> {
@@ -46,6 +49,13 @@ public class RoutineFragment extends Fragment {
         mRoutineListAdapter = new RoutineListAdapter(mRoutineClickCallback);
         mBinding.routinesList.setAdapter(mRoutineListAdapter);
 
+        tabs = mBinding.tabs;
+        tabs.addTab(tabs.newTab().setText("All"));
+        tabs.addTab(tabs.newTab().setText("Favorite"));
+        tabs.addTab(tabs.newTab().setText("Basic"));
+        tabs.addTab(tabs.newTab().setText("Phomer"));
+
+
         return mBinding.getRoot();
     }
 
@@ -55,21 +65,23 @@ public class RoutineFragment extends Fragment {
         final RoutineListViewModel viewModel =
                 new ViewModelProvider(this).get(RoutineListViewModel.class);
 
-        View.OnClickListener b = v -> {
-            int category = -1;
-            if(((Button)v).getText().equals("Favorites")){
-                category = 0;
-            }else if(((Button)v).getText().equals("Basic")){
-                category = 1;
-            }else if(((Button)v).getText().equals("Phomer")){
-                category = 2;
+        tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                int category = tab.getPosition();
+                viewModel.setQuery(category);
             }
-            viewModel.setQuery(category);
-        };
-        mBinding.buttonAll.setOnClickListener(b);
-        mBinding.buttonBasic.setOnClickListener(b);
-        mBinding.buttonDefined.setOnClickListener(b);
-        mBinding.buttonFavorites.setOnClickListener(b);
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
 
         subscribeUi(viewModel.getmRoutines());
     }

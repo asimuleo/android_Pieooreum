@@ -70,4 +70,10 @@ public class DExerFragment extends Fragment {
         args.putInt(KEY_Exer_ID, exerId);
         return args;
     }
+
+    public static Bundle getBundleWithDexerId(int dexerId) {
+        Bundle args = new Bundle();
+        args.putInt(KEY_Exer_ID, dexerId);
+        return args;
+    }
 }

@@ -37,7 +37,7 @@
         android:label="DRoutineFragment"
         tools:layout="@layout/add_exer_fragment">
         <action
-            android:id="@+id/action_DRoutineFragment_to_DExerFragment"
+            android:id="@+id/add_exer_dest_to_detail_exer_dest"
             app:destination="@id/detail_exer_dest" />
     </fragment>
     <fragment
