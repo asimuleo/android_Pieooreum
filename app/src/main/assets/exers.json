@@ -79,5 +79,14 @@
     "time": "-1",
     "group": "none",
     "imageUrl": "none"
+  },
+  {
+    "exerId": "9",
+    "name": "Bridges",
+    "calorie": "0.5",
+    "description": "",
+    "time": "-1",
+    "group": "none",
+    "imageUrl": "none"
   }
 ]

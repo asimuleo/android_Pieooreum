@@ -25,7 +25,11 @@
         android:id="@+id/training_dest"
         android:name="com.smu.team_andeu.nav.TrainingFragment"
         android:label="TrainingFragment"
-        tools:layout="@layout/training_fragment" />
+        tools:layout="@layout/training_fragment" >
+        <action
+            android:id="@+id/action_training_dest_to_progress_dest"
+            app:destination="@id/progress_dest" />
+    </fragment>
     <fragment
         android:id="@+id/setting_dest"
         android:name="com.smu.team_andeu.nav.SettingFragment"
@@ -39,20 +43,12 @@
         <action
             android:id="@+id/add_exer_dest_to_detail_exer_dest"
             app:destination="@id/detail_exer_dest" />
-        <action
-            android:id="@+id/action_add_exer_dest_to_detail_routine_dest"
-            app:destination="@id/detail_routine_dest" />
     </fragment>
     <fragment
         android:id="@+id/detail_exer_dest"
         android:name="com.smu.team_andeu.nav.DExerFragment"
         android:label="DExerFragment"
-        tools:layout="@layout/d_exer_fragment" >
-
-        <action
-            android:id="@+id/action_detail_exer_dest_to_add_dexer_dest"
-            app:destination="@id/add_dexer_dest" />
-    </fragment>
+        tools:layout="@layout/d_exer_fragment" />
     <fragment
         android:id="@+id/detail_routine_dest"
         android:name="com.smu.team_andeu.nav.DRoutineFragment"
@@ -65,13 +61,9 @@
             android:id="@+id/action_detail_routine_dest_to_detail_exer_dest"
             app:destination="@id/detail_exer_dest" />
     </fragment>
-    <fragment
-        android:id="@+id/add_dexer_dest"
-        android:name="com.smu.team_andeu.nav.AddDexerFragment"
-        android:label="AddDexerFragment"
-        tools:layout="@layout/add_dexer_fragment">
-        <action
-            android:id="@+id/action_add_dexer_dest_to_detail_routine_dest"
-            app:destination="@id/detail_routine_dest" />
-    </fragment>
+    <activity
+        android:id="@+id/progress_dest"
+        android:name="com.smu.team_andeu.ProgressActivity"
+        android:label="ProgressActivity"
+        tools:layout="@layout/exer_progress"/>
 </navigation>

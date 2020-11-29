@@ -3,7 +3,6 @@
     <string name="cd_exer_name">Name of the exercise</string>
     <string name="serach_product">serach product…</string>
     <string name="loading_exer">Loading exercises…</string>
-    <string name="loading_dexer">Loading dexers…</string>
     <string name="exers_list">exers list</string>
     <string name="loading_something">loading something…</string>
     <string name="something_list">something list</string>
@@ -36,15 +35,28 @@
     <string name="bmi_box">BMI_BOX</string>
     <string name="hint_height">height</string>
     <string name="hint_weight">weight</string>
+    <string name="nickname">NickName</string>
     <string name="lunge_image">Lunge_image</string>
     <string name="nickname_image">NickName_image</string>
     <string name="my_page">MY PAGE</string>
     <string name="calendar">Calendar</string>
     <string name="dexer_list">Dexer List</string>
-    <string name="setting_details">Setting details</string>
-    <string name="nickname">Nick Name</string>
-    <string name="pho_button_next">Add</string>
-    <string name="pho_button_cancel">Cancel</string>
-    <string name="pho_error_name">Nick Name must contain at least 8 characters.</string>
-    <string name="pho_error_int">This must be greater than 1.</string>
+    <string name="cancel_button_txt">포기하기/중단하기</string>
+    <string name="pose_help_txt">자세 흐트러지지 않게</string>
+    <string name="dd">00:00</string>
+    <string name="StringValue">이미지 불러오기 실패</string>
+    <string name="textview_detail">TextView</string>
+    <string name="loading_dexer">Loading dexer...</string>
+    <!--    //alarm-->
+    <string name="app_name">Notify Me!</string>
+    <string name="notification_title">You\'ve been notified!</string>
+    <string name="notification_text">This is your notification text.</string>
+    <string name="update">Update Notification</string>
+    <string name="notify_me">Notify Me!</string>
+    <string name="update_me">Update Me!</string>
+    <string name="cancel_me">Cancel Me!</string>
+    <string name="notification_updated">Notification Updated!</string>
+    <string name="notification_channel_name">Mascot Notification</string>
+    <string name="notification_channel_description">Notification from Mascot</string>
+    <string name="loading_dexer">Loading dexer...</string>
 </resources>
