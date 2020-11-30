@@ -2,14 +2,14 @@ package com.smu.team_andeu.nav;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
@@ -23,6 +23,7 @@ import com.smu.team_andeu.R;
 import com.smu.team_andeu.adapters.DexerListAdapter;
 import com.smu.team_andeu.callback.DexerClickCallback;
 
+import com.smu.team_andeu.data.RoutineRepository;
 import com.smu.team_andeu.data.RoutineWithDexers;
 import com.smu.team_andeu.databinding.DRoutineFragmentBinding;
 import com.smu.team_andeu.viewmodels.DexerListViewModel;
@@ -36,6 +37,8 @@ public class DRoutineFragment extends Fragment {
     DRoutineFragmentBinding mBinding;
 
     FloatingActionButton floatingActionButton;
+    ImageButton edit_name;
+    ImageButton delete_routine;
 
     // 콜백 생성
     private final DexerClickCallback mDexerClickCallback = dexer -> {
@@ -44,6 +47,8 @@ public class DRoutineFragment extends Fragment {
         }
     };
 
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -51,6 +56,8 @@ public class DRoutineFragment extends Fragment {
         dexerListAdapter = new DexerListAdapter(mDexerClickCallback);
         mBinding.routinesList.setAdapter(dexerListAdapter);
         floatingActionButton = mBinding.addExerButton;
+        edit_name = mBinding.editNameButton;
+        delete_routine = mBinding.deleteButton;
 
         return mBinding.getRoot();
     }
@@ -71,6 +78,29 @@ public class DRoutineFragment extends Fragment {
                         viewModel.getRoutineWithDexers().getValue().getRoutine());
             }
         });
+
+        edit_name.setOnClickListener(v -> {
+            // routine Id 를 전달 함으로서 RenameFragment가 어떤 루틴인지 알 수 있게 해준다.
+            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                ((MainActivity) requireActivity()).showRoutineRename(
+                        requireArguments().getInt(KEY_ROUTINE_ID));
+            }
+        });
+
+        // 해당루틴 삭제
+        delete_routine.setOnClickListener(v -> new AlertDialog.Builder(getContext())
+                .setTitle(getActivity().getApplication().getPackageName())
+                .setMessage(mBinding.routineName.getText() + " 를 삭제하시겠습니까?")
+                .setPositiveButton("삭제", (dialog, which) -> {
+                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                        ((MainActivity) requireActivity()).pop();
+                    }
+                    RoutineRepository.getInstance(getActivity().getApplication()).removeRoutineById(
+                            requireArguments().getInt(KEY_ROUTINE_ID));
+                })
+                .setNegativeButton("아니요", ((dialog, which) -> {
+                }))
+                .show());
 
         subscribeToModel(viewModel.getRoutineWithDexers());
     }

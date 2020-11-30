@@ -60,6 +60,18 @@
     <string name="setting_details">Setting details</string>
     <string name="pho_button_next">Add</string>
     <string name="pho_button_cancel">Cancel</string>
-    <string name="pho_error_name">Nick Name must contain at least 8 characters.</string>
+    <string name="pho_error_name">Nick Name must contain at least 1 characters.</string>
+    <string name="pho_error_rname">Routine Name must contain at least 1 characters. up to 8 characters </string>
     <string name="pho_error_int">This must be greater than 1.</string>
+    <string name="pho_button_rename">Rename</string>
+    <string name="routine_name">Routine Name</string>
+    <string name="settting_dexer">Settting Dexer</string>
+    <string name="new_routine">New Routine</string>
+    <string name="edit">edit</string>
+    <string name="trash">trash</string>
+    <string name="kcal_exa">소모한 칼로리 : 235 kcal</string>
+    <string name="phome">Phome</string>
+    <string name="start_"><![CDATA[Start >]]></string>
+    <string name="more_about">More About</string>
+    <string name="congratulate">Congratulate</string>
 </resources>

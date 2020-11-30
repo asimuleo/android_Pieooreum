@@ -20,8 +20,8 @@ public interface RoutineWithDexersDao {
 
     // 해당하는 루틴의 튜플을 반환합니다.
     @Transaction
-    @Query("SELECT * FROM routine WHERE routineId = :rId")
-    LiveData<RoutineWithDexers> getRoutineWithDexers(int rId);
+    @Query("SELECT * FROM routine WHERE routineId = :rid")
+    LiveData<RoutineWithDexers> getRoutineWithDexer(int rid);
 
     // 카테고리는 0,1,2 존재합니다.
     @Transaction

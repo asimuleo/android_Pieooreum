@@ -9,15 +9,16 @@
 
     <ImageView
         android:id="@+id/exer_start_woman"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:adjustViewBounds="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/exer_start_woman" />
+        app:layout_constraintBottom_toTopOf="@id/button_start"
+        app:srcCompat="@drawable/exer_start_woman"
+        android:contentDescription="@string/start" />
 
     <Button
         android:id="@+id/button_start"
@@ -25,12 +26,11 @@
         android:layout_height="77dp"
         android:layout_marginTop="92dp"
         android:backgroundTint="@color/colorAccent"
-        android:text="Start >"
+        android:text="@string/start_"
         android:textColor="#ffffff"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exer_start_woman"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

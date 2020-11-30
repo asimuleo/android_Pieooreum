@@ -34,7 +34,7 @@ public class RoutineWithDexersRepository {
 
     // 해당하는 루틴을 얻습니다. by routineId
     public LiveData<RoutineWithDexers> getRoutinesById(int rId) {
-        return routineWithDexersDao.getRoutineWithDexers(rId);
+        return routineWithDexersDao.getRoutineWithDexer(rId);
     }
 
     public LiveData<List<RoutineWithDexers>> getRoutinesByCategory(int category) {

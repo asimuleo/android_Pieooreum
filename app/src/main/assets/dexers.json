@@ -1,9 +1,9 @@
 [
   {
     "dexer_id": "0",
-    "exerOwnerId": "0",
+    "exerOwnerId": "1",
     "d_routineId": "0",
-    "d_nicname": "테스트덱서1",
+    "d_nicname": "Push Up!!!",
     "d_count": "1",
     "d_time": "1",
     "d_calories": "10",
@@ -13,7 +13,7 @@
     "dexer_id": "1",
     "exerOwnerId": "1",
     "d_routineId": "0",
-    "d_nicname": "테스트덱서2",
+    "d_nicname": "어이!!!!",
     "d_count": "2",
     "d_time": "2",
     "d_calories": "10",
@@ -23,30 +23,30 @@
     "dexer_id": "2",
     "exerOwnerId": "2",
     "d_routineId": "1",
-    "d_nicname": "테스트덱서3",
+    "d_nicname": "열심히하자!!!",
     "d_count": "3",
     "d_time": "3",
     "d_calories": "10",
-    "d_categories": "2"
+    "d_categories": "0"
   },
   {
     "dexer_id": "3",
     "exerOwnerId": "3",
     "d_routineId": "2",
-    "d_nicname": "테스트덱서4",
+    "d_nicname": "운동닉네임1",
     "d_count": "4",
     "d_time": "4",
     "d_calories": "10",
-    "d_categories": "3"
+    "d_categories": "0"
   },
   {
     "dexer_id": "4",
     "exerOwnerId": "4",
     "d_routineId": "3",
-    "d_nicname": "테스트덱서5",
+    "d_nicname": "운동닉네임2",
     "d_count": "5",
     "d_time": "5",
     "d_calories": "10",
-    "d_categories": "4"
+    "d_categories": "0"
   }
 ]

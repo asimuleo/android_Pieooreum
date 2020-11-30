@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="isTime"
+            type="boolean" />
+        <variable
+            name="dexer"
+            type="com.smu.team_andeu.data.Dexer" />
+    </data>
+        <LinearLayout
+            android:layout_marginTop="100dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin_default"
+                android:elevation="10dp"
+                android:fontFamily="@font/gmarketsansttfmedium"
+                android:text="@string/settting_dexer"
+                android:textAppearance="@style/TextAppearance.Phome.Title"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:text="@{dexer.name+@string/dexer_cal(dexer.calorie)}"
+                android:layout_marginBottom="10dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dexer_name_text_input"
+                style="@style/Widget.Phome.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@{dexer.name}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dexer_name_text_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                app:visibleGone="@{!isTime}"
+                android:id="@+id/dexer_count_text_input"
+                style="@style/Widget.Phome.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@{@string/dexer_count(dexer.count)}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dexer_count_text_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberSigned"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                app:visibleGone="@{isTime}"
+                android:id="@+id/dexer_time_text_input"
+                style="@style/Widget.Phome.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@{@string/dexer_time(dexer.time)}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dexer_time_text_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberSigned"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+</layout>

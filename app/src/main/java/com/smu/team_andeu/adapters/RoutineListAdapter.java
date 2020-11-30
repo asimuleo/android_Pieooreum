@@ -24,7 +24,6 @@ public class RoutineListAdapter extends RecyclerView.Adapter<RoutineListAdapter.
 
     public RoutineListAdapter(@NonNull RoutineClickCallback clickCallback) {
         mRoutineClickCallback = clickCallback;
-        setHasStableIds(true);
     }
 
     public void setRoutineList(final List<? extends RoutineWithDexers> routineList) {
@@ -53,7 +52,8 @@ public class RoutineListAdapter extends RecyclerView.Adapter<RoutineListAdapter.
                 public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
                     RoutineWithDexers newR = routineList.get(newItemPosition);
                     RoutineWithDexers oldR = mRoutineList.get(oldItemPosition);
-                    return newR.getRoutine().getRoutineId() == oldR.getRoutine().getRoutineId();
+                    return newR.getRoutine().getRoutineId() == oldR.getRoutine().getRoutineId()
+                            && newR.getRoutine().getR_name().equals(oldR.getRoutine().getR_name());
                 }
             });
             mRoutineList = routineList;

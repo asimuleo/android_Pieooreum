@@ -13,17 +13,20 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.smu.team_andeu.MainActivity;
 import com.smu.team_andeu.R;
 import com.smu.team_andeu.data.Dexer;
 import com.smu.team_andeu.data.DexerRepository;
 import com.smu.team_andeu.databinding.DExerFragmentBinding;
+import com.smu.team_andeu.viewmodels.DetailDexerViewModel;
 import com.smu.team_andeu.viewmodels.ExerViewModel;
 
 public class DExerFragment extends Fragment {
     private static final String KEY_Exer_ID = "exer_id";
     private static final String KEY_ADD = "Add";
     private static final String KEY_ROUTINE_ID = "routine_id";
+    private static String KEY_Dexer_ID = "dexer_id";
 
     DExerFragmentBinding mBinding;
     Button button;
@@ -49,6 +52,7 @@ public class DExerFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        //Exer 상세정보 부분
         ExerViewModel.Factory factory = new ExerViewModel.Factory(
                 requireActivity().getApplication(), requireArguments().getInt(KEY_Exer_ID));
 
@@ -56,6 +60,14 @@ public class DExerFragment extends Fragment {
                 .get(ExerViewModel.class);
         mBinding.setLifecycleOwner(getViewLifecycleOwner());
         mBinding.setExerViewModel(model);
+
+
+        DetailDexerViewModel.Factory factory1 = new DetailDexerViewModel.Factory(
+                requireActivity().getApplication(), requireArguments().getInt(KEY_Dexer_ID));
+        final DetailDexerViewModel model1 = new ViewModelProvider(this, factory1)
+                .get(DetailDexerViewModel.class);
+        mBinding.setDetailDexerViewMoidel(model1);
+
 
         button.setOnClickListener(v -> {
             if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
@@ -90,9 +102,10 @@ public class DExerFragment extends Fragment {
         return args;
     }
 
-    public static Bundle getBundleWithDexerId(int exerId) {
+    public static Bundle getBundleWithDexerId(int exerId, int dexerId) {
         Bundle args = new Bundle();
         args.putInt(KEY_Exer_ID, exerId);
+        args.putInt(KEY_Dexer_ID, dexerId);
         args.putBoolean(KEY_ADD, false);
         return args;
     }
