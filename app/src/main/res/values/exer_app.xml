@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="exer_cal">Cal: %3.1f</string>
-    <string name="dexer_cal">Cal: %3.1f</string>
+    <string name="dexer_cal">&#160;&#160;Total Cal: %3.1f</string>
+    <string name="dexer_count">Count: %d</string>
+    <string name="dexer_time">Time: %d</string>
     <string name="routine_cal">TCal: %4.1f</string>
     <dimen name="exer_item_min_height">100dp</dimen>
 </resources>

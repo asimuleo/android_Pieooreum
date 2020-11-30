@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -55,6 +56,8 @@ public class RoutineFragment extends Fragment {
         tabs.addTab(tabs.newTab().setText("Basic"));
         tabs.addTab(tabs.newTab().setText("Phomer"));
 
+        Button new_button = mBinding.newRoutineButton;
+        new_button.setOnClickListener(v -> Toast.makeText(getContext(), "미 구현", Toast.LENGTH_SHORT).show());
 
         return mBinding.getRoot();
     }

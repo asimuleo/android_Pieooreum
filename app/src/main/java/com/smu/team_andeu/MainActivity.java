@@ -20,6 +20,7 @@ import com.smu.team_andeu.nav.AddDexerFragment;
 import com.smu.team_andeu.nav.AddExerFragment;
 import com.smu.team_andeu.nav.DExerFragment;
 import com.smu.team_andeu.nav.DRoutineFragment;
+import com.smu.team_andeu.nav.RenameRoutineFragment;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -99,9 +100,20 @@ public class MainActivity extends AppCompatActivity {
         navController.navigate(R.id.action_training_dest_to_startActivity, bundle);
     }
 
+    // 루틴 이름 바꾸기 흐름 1
+    public void showRoutineRename(int routineId) {
+        Bundle bundle = RenameRoutineFragment.getBundleWithId(routineId);
+        navController.navigate(R.id.action_detail_routine_dest_to_rename_routine_dest, bundle);
+    }
+    // 루틴 이름 바꾸기 흐름 2
+    public void showResultRoutineRename(int routineId){
+        Bundle bundle = DRoutineFragment.getBundleWithId(routineId);
+        navController.navigate(R.id.action_rename_routine_dest_to_detail_routine_dest, bundle);
+    }
+
 
     public void showExerWithDexer(Dexer dexer) {
-        Bundle bundle = DExerFragment.getBundleWithDexerId(dexer.getExerId());
+        Bundle bundle = DExerFragment.getBundleWithDexerId(dexer.getExerId(), dexer.getDexerId());
         navController.navigate(R.id.action_detail_routine_dest_to_detail_exer_dest, bundle);
     }
 
@@ -133,5 +145,9 @@ public class MainActivity extends AppCompatActivity {
                         .setNegativeButton("아니요", null)
                         .show();
         }
+    }
+
+    public void pop() {
+        navController.popBackStack();
     }
 }

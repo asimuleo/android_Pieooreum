@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="dexer"
             type="com.smu.team_andeu.model.Dexer" />

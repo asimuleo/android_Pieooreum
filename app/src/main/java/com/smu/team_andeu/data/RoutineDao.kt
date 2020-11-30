@@ -23,4 +23,10 @@ interface RoutineDao {
 
     @Update(entity = Routine::class)
     fun updateRutineMaxOrder(routine:RoutineOrder)
+
+    @Update(entity = Routine::class)
+    fun updateRutineName(routine:RoutineName)
+
+    @Query("DELETE FROM routine WHERE routineId = :rId")
+    fun deleteRoutineById(rId: Int)
 }

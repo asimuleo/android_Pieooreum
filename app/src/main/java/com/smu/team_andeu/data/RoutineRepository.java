@@ -5,6 +5,9 @@ import android.database.Cursor;
 
 import androidx.lifecycle.LiveData;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class RoutineRepository {
 
     private static RoutineRepository sInstance;
@@ -33,5 +36,22 @@ public class RoutineRepository {
 
     public LiveData<Routine> getRoutine(int rId){return mRoutineDao.getRoutine(rId);}
 
-    public void updateRoutineMaxorder(RoutineOrder routineOrder){mRoutineDao.updateRutineMaxOrder(routineOrder);}
+
+    public void updateRoutineMaxorder(RoutineOrder routineOrder){
+        final ExecutorService e = Executors.newSingleThreadExecutor();
+        e.submit(() -> mRoutineDao.updateRutineMaxOrder(routineOrder));
+        e.shutdown();
+    }
+
+    public void updateRoutineName(RoutineName routineName){
+        final ExecutorService e = Executors.newSingleThreadExecutor();
+        e.submit(() -> mRoutineDao.updateRutineName(routineName));
+        e.shutdown();
+    }
+
+    public void removeRoutineById(int rId){
+        final ExecutorService e = Executors.newSingleThreadExecutor();
+        e.submit(() -> mRoutineDao.deleteRoutineById(rId));
+        e.shutdown();
+    }
 }

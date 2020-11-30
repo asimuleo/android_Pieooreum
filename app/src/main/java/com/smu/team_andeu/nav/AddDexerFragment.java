@@ -1,7 +1,10 @@
 package com.smu.team_andeu.nav;
 
+
 import android.os.Bundle;
+
 import android.text.Editable;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
@@ -17,11 +21,13 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.smu.team_andeu.MainActivity;
 import com.smu.team_andeu.R;
 import com.smu.team_andeu.data.Dexer;
-import com.smu.team_andeu.data.DexerRepository;
+
 import com.smu.team_andeu.data.Exercise;
-import com.smu.team_andeu.data.ExerciseRepository;
-import com.smu.team_andeu.data.RoutineRepository;
+
+import com.smu.team_andeu.data.Routine;
+
 import com.smu.team_andeu.data.RoutineOrder;
+import com.smu.team_andeu.viewmodels.AddDexerViewModel;
 
 public class AddDexerFragment extends Fragment {
 
@@ -29,6 +35,8 @@ public class AddDexerFragment extends Fragment {
     private static final String KEY_EXER_ID = "exer_id";
 
     boolean b;
+    Routine routine;
+    Exercise exercise;
 
     @Nullable
     @Override
@@ -42,6 +50,13 @@ public class AddDexerFragment extends Fragment {
         MaterialButton addButton = view.findViewById(R.id.add_button);
         MaterialButton cancelButton = view.findViewById(R.id.cancel_button);
 
+        final AddDexerViewModel viewModel =
+                new ViewModelProvider(this).get(AddDexerViewModel.class);
+        viewModel.setQuery(requireArguments().getInt(KEY_ROUTINE_ID) ,requireArguments().getInt(KEY_EXER_ID));
+        viewModel.getmRoutine().observe(getViewLifecycleOwner(), r -> routine = r);
+        viewModel.getmExercise().observe(getViewLifecycleOwner(), e -> exercise = e);
+
+
         addButton.setOnClickListener(v -> {
             if(!isNameValid(nameEditText.getText())){
                 nameTextInput.setError(getString(R.string.pho_error_name));
@@ -52,10 +67,13 @@ public class AddDexerFragment extends Fragment {
                 nameTextInput.setError(null);
                 intTextInput.setError(null);
 
-                // dexer add 하기
+                //dexer 삽입
                 Dexer dexer = makeDexer(nameEditText.getText(), intEditText.getText());
-                DexerRepository.getInstance(getActivity().getApplication()).insert(dexer);
-
+                viewModel.insertDexer(dexer);
+                // 루틴 업데이트
+                viewModel.updateRoutineMaxOrder(new RoutineOrder(
+                        requireArguments().getInt(KEY_ROUTINE_ID),routine.getMaxOrder()+1));
+                // 루틴 상세 화면으로 이동
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                     ((MainActivity) requireActivity()).showAddResult(
                             requireArguments().getInt(KEY_ROUTINE_ID));
@@ -66,6 +84,8 @@ public class AddDexerFragment extends Fragment {
         nameEditText.setOnKeyListener((v, keyCode, event) -> {
             if(isNameValid(nameEditText.getText())){
                 nameTextInput.setError(null); //Clear the error
+            }else{
+                nameTextInput.setError(getString(R.string.pho_error_name));
             }
             return false;
         });
@@ -73,6 +93,8 @@ public class AddDexerFragment extends Fragment {
         intEditText.setOnKeyListener((v, keyCode, event) -> {
             if(isIntValid(intEditText.getText())){
                 intTextInput.setError(null); //Clear the error
+            }else{
+                intTextInput.setError(getString(R.string.pho_error_int));
             }
             return false;
         });
@@ -81,28 +103,20 @@ public class AddDexerFragment extends Fragment {
     }
 
     private Dexer makeDexer(Editable nickname, Editable i) {
-
-        Exercise e = ExerciseRepository.getInstance(getActivity().getApplication()).getExerById(
-                requireArguments().getInt(KEY_EXER_ID))
-                .getValue();
-        int maxOrder = RoutineRepository.getInstance(getActivity().getApplication()).getRoutine(
-                requireArguments().getInt(KEY_ROUTINE_ID))
-                .getValue()
-                .getMaxOrder();
+        int maxOrder = routine.getMaxOrder();
         // Count Time 정하기
-        b = e.isTime();
+        b = exercise.isTime();
         int d_time = 0;
         int d_count = 0;
         int d_calories;
         if(b){
             d_time = Integer.valueOf(i.toString());
-            d_calories = (int) (d_time * e.getCalorie());
+            d_calories = (int) (d_time * exercise.getCalorie());
         }else{
             d_count = Integer.valueOf(i.toString());
-            d_calories = (int) (d_count * e.getCalorie());
+            d_calories = (int) (d_count * exercise.getCalorie());
         }
-
-        Dexer dexer = new Dexer(0,
+        return new Dexer(0,
                 requireArguments().getInt(KEY_EXER_ID),
                 nickname.toString(),
                 d_count,
@@ -110,18 +124,12 @@ public class AddDexerFragment extends Fragment {
                 d_calories,
                 requireArguments().getInt(KEY_ROUTINE_ID),
                 maxOrder);
-
-        RoutineRepository.getInstance(getActivity().getApplication()).updateRoutineMaxorder(new RoutineOrder(
-                requireArguments().getInt(KEY_ROUTINE_ID),maxOrder+1
-        ));
-        return dexer;
     }
 
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
     }
 
     @Override
@@ -136,10 +144,8 @@ public class AddDexerFragment extends Fragment {
     }
 
     private boolean isNameValid(@Nullable Editable text) {
-        return text != null && text.length() >= 8;
+        return text != null && text.length() >= 1;
     }
-
-
 
     public static Bundle getBundleWithId(int routineId, int exerId){
         Bundle args = new Bundle();

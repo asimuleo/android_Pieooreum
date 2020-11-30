@@ -2,6 +2,11 @@ package com.smu.team_andeu.data;
 
 import android.app.Application;
 
+import androidx.lifecycle.LiveData;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class DexerRepository {
 
     private static DexerRepository sInstance;
@@ -24,6 +29,13 @@ public class DexerRepository {
     }
 
     public void insert(Dexer dexer){
-        mDexerDao.insert(dexer);
+        final ExecutorService e = Executors.newSingleThreadExecutor();
+        e.submit(() -> mDexerDao.insert(dexer));
+        e.shutdown();
     }
+
+    public LiveData<Dexer> getDexerById(int dexerId) {
+        return mDexerDao.getDexer(dexerId);
+    }
+
 }

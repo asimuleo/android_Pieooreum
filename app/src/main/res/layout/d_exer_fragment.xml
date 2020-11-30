@@ -17,49 +17,60 @@
         <variable
             name="exerViewModel"
             type="com.smu.team_andeu.viewmodels.ExerViewModel" />
+        <variable
+            name="detailDexerViewMoidel"
+            type="com.smu.team_andeu.viewmodels.DetailDexerViewModel" />
     </data>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimary"
+        android:padding="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin_default"
+                android:elevation="10dp"
+                android:fontFamily="@font/gmarketsansttfmedium"
+                android:text="@string/more_about"
+                android:textAppearance="@style/TextAppearance.Phome.Title"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
             <include
                 layout="@layout/item_exer"
                 app:exer="@{exerViewModel.exer}" />
 
-            <FrameLayout
+            <TextView
+                android:id="@+id/loading_something"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:text="@string/loading_something"
+                app:visibleGone="@{isLoading}" />
 
-                <TextView
-                    android:id="@+id/loading_something"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@string/loading_something"
-                    app:visibleGone="@{isLoading}" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/something_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/something_list"
-                    app:layoutManager="LinearLayoutManager"
-                    app:visibleGone="@{!isLoading}" />
-            </FrameLayout>
+            <include
+                app:visibleGone="@{!isFromAdd}"
+                layout="@layout/item_edit_dexer"
+                app:dexer="@{detailDexerViewMoidel.dexer}"
+                app:isTime="@{exerViewModel.exer.time > 0}"
+                />
 
             <Button
                 android:id="@+id/add_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/add"
                 android:layout_gravity="center"
-                app:visibleGone="@{isFromAdd}"/>
+                android:text="@string/add"
+                app:visibleGone="@{isFromAdd}" />
         </LinearLayout>
     </ScrollView>
 </layout>

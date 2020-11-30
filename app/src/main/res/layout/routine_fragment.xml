@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -49,17 +50,16 @@
                     app:tabGravity="fill"
                     app:tabTextColor="@color/colorPrimary"
                     app:tabSelectedTextColor="@color/colorPrimaryDark" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/routines_list"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/routines_list"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:visibleGone="@{!isLoading}"
-                app:layout_constraintTop_toBottomOf="@id/tabs"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                <Button
+                    android:id="@+id/new_routine_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/new_routine"
+                    app:layout_constraintBottom_toBottomOf="@+id/myroutine"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.791"
+                    app:layout_constraintStart_toEndOf="@+id/myroutine"
+                    app:layout_constraintTop_toTopOf="@+id/myroutine" />
             </androidx.constraintlayout.widget.ConstraintLayout>
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/loading_text"
@@ -69,6 +69,13 @@
                 android:text="@string/loading_routines"
                 android:textAlignment="center"
                 app:visibleGone="@{isLoading}" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/routines_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/routines_list"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:visibleGone="@{!isLoading}"/>
         </LinearLayout>
 
     </ScrollView>
