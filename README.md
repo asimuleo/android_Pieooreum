@@ -8,11 +8,13 @@ java
 
 ## 구현에 사용되는 Android Jetpack의 구성요소
 
-Room
-ViewModel 
-LiveData
-WorkManager
-Data Binding
-Navigation
+Room  
+ViewModel  
+LiveData  
+WorkManager  
+Data Binding  
+Navigation  
+##
+https://youtu.be/OkUm1fqg4A0
 
 # 감사합니다.
